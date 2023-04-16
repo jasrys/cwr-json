@@ -1,0 +1,1262 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "$id": "http://example.com/root.json",
+    "$version": "3.1",
+    "$revision": "5",
+    "$technicallifecyclestatus": "Active",
+    "title": "Common Agreement Format Schema",
+    "type": "object",
+    "required": [
+        "fileHeader"
+    ],
+    /***************************************
+     CAF Skeleton / hierarchy properties
+
+        CAF Transactions: HDR + CAFs
+        CAF Acknowledgment transaction: HDR + ACKs
+    ****************************************/
+    "properties": {
+        "fileHeader": {
+            "$id": "#/properties/ack",
+            "type": "object",
+            "title": "CAF File Header Record",
+            "description": "File header information for a CAF Transaction.",
+            "allOf": [{ "$ref": "#/definitions/file_header_record" }],
+            "required": [
+                "submitter_type",
+                "submitter_code",
+                "submitter_name",
+                "creation_date_time",
+                "transmission_date",
+                "filename"
+            ]
+        },
+        "agreements": {
+            "$id": "#/properties/cafs",
+            "type": "array",
+            "title": "CAF Transactions list",
+            "description": "Allows a submitter to communicate a list of agreements transactions (CAF)",
+            "items": {
+                "$id": "#/properties/cafs/items",
+                "type": "object",
+                "title": "CAF header information",
+                "allOf": [{ "$ref": "#/definitions/caf_header_record" }],
+                "required": [
+                    "transaction_type",
+                    "submitter_agreement_number",
+                    "coreAgreement"
+                ],
+                "properties": {
+                    "coreAgreement": {
+                        "$id": "#/properties/agr",
+                        "type": "object",
+                        "title": "Core Agreement",
+                        "description": "The Core Agreement record contains information specific to the agreement and occurring at the agreement level. ",
+                        "allOf": [{ "$ref": "#/definitions/core_agreement" }],
+                        "required": [
+                            "type_of_agreement",
+                            "bulk_transfer_of_works",
+                            "implied_or_obo",
+                            "terms",
+                            "assignor",
+                            "assignee"
+                        ],
+                        "properties": {
+                            "terms": {
+                                "$id": "#/properties/trms",
+                                "type": "array",
+                                "title": "Agreement Term",
+                                "description": "The Agreement Term (TRM) record contains information defining the territorial scope of the agreement and the duration and the start date in each territory.",
+                                "items": {
+                                    "$id": "#/properties/trms/items",
+                                    "type": "object",
+                                    "title": "The Items Schema",
+                                    "allOf": [{ "$ref": "#/definitions/agreement_term" }],
+                                    "required": [
+                                        "start_date",
+                                        "prior_royalties",
+                                        "expected_termination",
+                                        "territories",
+                                        "shares"
+                                    ],
+                                    "properties": {
+                                        "territories": {
+                                            "$id": "#/properties/ties",
+                                            "title": "Territory Include / Exclude for Term",
+                                            "description": "The Territory Include / Exclude for Term (TIE) contains information defining the territories covered by a given TRM. ",
+                                            "type": "array",
+                                            "items": {
+                                                "$id": "#/properties/ties/items",
+                                                "type": "object",
+                                                "allOf": [{ "$ref": "#/definitions/territory_inclusion_exclusion" }],
+                                                "required": [
+                                                    "tisn",
+                                                    "include_exclude"
+                                                ]
+                                            }
+                                        },
+                                        "shares": {
+                                            "$id": "#/properties/shrs",
+                                            "type": "array",
+                                            "title": "Shares",
+                                            "description": "The Shares (SHR) record describes the shares of royalties (arising from licensing of rights) collectable by the Assignee, reserved to the Assignor and directly collectable by the creators.",
+                                            "items": {
+                                                "$id": "#/properties/shrs/items",
+                                                "type": "object",
+                                                "title": "The Items Schema",
+                                                "allOf": [{ "$ref": "#/definitions/shares" }],
+                                                "required": [
+                                                    "creator_share_retained",
+                                                    "publisher_share_retained",
+                                                    "assignee_collectable_share",
+                                                    "right_type",
+                                                    "territories"
+                                                ],
+                                                "properties": {
+                                                    "territories": {
+                                                        "$id": "#/properties/sies",
+                                                        "title": "Territory Include / Exclude for Shares",
+                                                        "description": "The Territory Include / Exclude for Shares (SIE) contains information defining the territories covered by a given SHR.",
+                                                        "type": "array",
+                                                        "items": {
+                                                            "type": "object",
+                                                            "$id": "#/properties/sies/items",
+                                                            "allOf": [{ "$ref": "#/definitions/territory_inclusion_exclusion" }],
+                                                            "required": [
+                                                                "tisn",
+                                                                "include_exclude"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "usageTypes": {
+                                                        "$id": "#/properties/uies",
+                                                        "type": "array",
+                                                        "title": "Usage Include / Exclude",
+                                                        "description": "The Usage Include / Exclude (UIE) record describes the usage types which are explicitly included in the Right Type in the associated SHR record and/or the usage types which are excluded from in the Right Type in the associated SHR record.",
+                                                        "items": {
+                                                            "$id": "#/properties/uies/items",
+                                                            "type": "object",
+                                                            "title": "The Items Schema",
+                                                            "allOf": [{ "$ref": "#/definitions/usage_include_exclude" }],
+                                                            "required": [
+                                                                "include_exclude",
+                                                                "usage_type"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "assignor": {
+                                "$id": "#/properties/asr",
+                                "type": "object",
+                                "title": "Assignor",
+                                "description": "The Assignor (ASR) record contains information identifying the party to the agreement which is passing collection rights to the Assignee (as identified in the ASE record).",
+                                "allOf": [{ "$ref": "#/definitions/assignor" }],
+                                "required": [
+                                    "person",
+                                    "name"
+                                ]
+                            },
+                            "assignee": {
+                                "$id": "#/properties/ase",
+                                "type": "object",
+                                "title": "Assignee",
+                                "description": "The Assignee (ASE) record contains information identifying the party to the agreement which is granted collection rights by the Assignor (as identified in the ASR record).",
+                                "allOf": [{ "$ref": "#/definitions/assignee" }],
+                                "required": [
+                                    "name"
+                                ]
+                            },
+                            "libraryProduction": {
+                                "$id": "#/properties/lib",
+                                "type": "object",
+                                "title": "Library / Production Music",
+                                "allOf": [{ "$ref": "#/definitions/library_production_music" }],
+                                "required": [
+                                    "library_music"
+                                ]
+                            },
+                            "works": {
+                                "$id": "#/properties/wrks",
+                                "type": "array",
+                                "title": "Work Details list",
+                                "description": "The list of Work Details (WRK) record which are subject to the agreement being described",
+                                "items": {
+                                    "$id": "#/properties/wrks/items",
+                                    "type": "object",
+                                    "title": "Work Details",
+                                    "description": "The Work Details (WRK) record contains details of works which are subject to the agreement being described, such details being sufficient to identify the works, but not details which specify work level collection shares, chain of copyright etc.. which are covered by the CWR format.",
+                                    "allOf": [{ "$ref": "#/definitions/work_details" }],
+                                    "required": [
+                                        "title",
+                                        "territories",
+                                        "recipientWorkNumbers"
+                                    ],
+                                    "properties": {
+                                        "territories": {
+                                            "$id": "#/properties/wtrs",
+                                            "type": "array",
+                                            "title": "Work Territory Include / Exclude list",
+                                            "description": "List of Work Territory Include / Exclude (WTR) record",
+                                            "items": {
+                                                "$id": "#/properties/wtrs/items",
+                                                "type": "object",
+                                                "title": "Work Territory Include / Exclude",
+                                                "description": "The Work Territory Include / Exclude (WTR) record contains information defining the territories covered by a given WRK record, if given.",
+                                                "allOf": [{ "$ref": "#/definitions/work_territory_inclusion_exclusion" }],
+                                                "required": [
+                                                    "include_exclude",
+                                                    "tisn",
+                                                    "exclusion_until",
+                                                    "exclusion_until_date"
+                                                ]
+                                            }
+                                        },
+                                        "recipientWorkNumbers": {
+                                            "$id": "#/properties/rwns",
+                                            "type": "array",
+                                            "title": "Recipient Work Number list",
+                                            "description": "The list of Recipient Work Number (RWN) ",
+                                            "items": {
+                                                "$id": "#/properties/rwns/items",
+                                                "type": "object",
+                                                "title": "Recipient Work Number (RWN) item",
+                                                "allOf": [{ "$ref": "#/definitions/recipient_work_number" }],
+                                                "required": [
+                                                    "code",
+                                                    "identifier"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "relatedAgreementNumbers": {
+                                "$id": "#/properties/xrf",
+                                "type": "array",
+                                "title": "Related Agreements and Identifiers",
+                                "description": "The Related Agreements and Identifiers (XRF) record contains Recipient identifiers for the agreement and cross-references to related CAF transactions such as other elements of a co-publishing agreement and/or sub-publishing network or hub “agreement numbers”.",
+                                "items": {
+                                    "$id": "#/properties/xrf/items",
+                                    "type": "object",
+                                    "title": "The Items Schema",
+                                    "allOf": [{ "$ref": "#/definitions/related_agreements_identifiers" }],
+                                    "required": [
+                                        "transmitter_code",
+                                        "transmitter_agreement_id"
+                                    ]
+                                }
+                            },
+                            "termination": {
+                                "$id": "#/properties/exp",
+                                "type": "object",
+                                "title": "Termination",
+                                "description": "The Termination (EXP) record contains information relating to the end of rights to collect for a right type and describes any retention or collection period which applies.",
+                                "allOf": [{ "$ref": "#/definitions/termination" }],
+                                "required": [
+                                    "termination_date",
+                                    "request_terminated_works_list",
+                                    "works_retained",
+                                    "territories"
+                                ],
+                                "properties": {
+                                    "territories": {
+                                        "$id": "#/properties/tixs",
+                                        "description": "The Territory Include / Exclude for Termination (TIX) contains information defining the territories covered by a given EXP record.",
+                                        "title": "Territory Include / Exclude for Termination",
+                                        "type": "array",
+                                        "items": {
+                                            "$id": "#/properties/tixs/items",
+                                            "title": "Territory Include / Exclude for Termination item",
+                                            "type": "object",
+                                            "allOf": [{ "$ref": "#/definitions/territory_inclusion_exclusion" }],
+                                            "required": [
+                                                "tisn",
+                                                "include_exclude"
+                                            ]
+                                        }
+                                    },
+                                    "retainedWorks": {
+                                        "$comment": "Retained Work",
+                                        "$id": "#/properties/rwks",
+                                        "type": "array",
+                                        "title": "Retained Works",
+                                        "description": "The Retained Works (RWK) record contains details of works which are subject to termination as described in an associated EXP record.  An RWK may further describe any exceptions to any default retention or collection period as set out in the EXP.",
+                                        "items": {
+                                            "$id": "#/properties/rwks/items",
+                                            "type": "object",
+                                            "title": "The Items Schema",
+                                            "allOf": [{ "$ref": "#/definitions/retained_works_detail" }],
+                                            "required": [
+                                                "title",
+                                                "use_default_retention"
+                                            ],
+                                            "properties": {
+                                                "territories": {
+                                                    "$id": "#/properties/rwts",
+                                                    "type": "array",
+                                                    "title": "Retained Work Territory Include / Exclude",
+                                                    "description": "The Retained Work Territory Include / Exclude (RWT) record contains information defining the territories covered by a given RWK record respectively, if given.",
+                                                    "items": {
+                                                        "$id": "#/properties/rwts/items",
+                                                        "type": "object",
+                                                        "title": "The Items Schema",
+                                                        "anyOf": [{ "$ref": "#/definitions/work_territory_inclusion_exclusion" }],
+                                                        "required": [
+                                                            "include_exclude",
+                                                            "tisn",
+                                                            "exclusion_until",
+                                                            "exclusion_until_date"
+                                                        ]
+                                                    }
+                                                },
+                                                "recipientWorkNumbers": {
+                                                    "$id": "#/properties/rwns",
+                                                    "type": "array",
+                                                    "title": "Recipient Work Number",
+                                                    "description": "The Recipient Work Number (RWN) record contains Recipient identifiers for works listed in WRK or RWK records.",
+                                                    "items": {
+                                                        "$id": "#/properties/rwns/items",
+                                                        "type": "object",
+                                                        "title": "Recipient Work Number item",
+                                                        "allOf": [{ "$ref": "#/definitions/recipient_work_number" }],
+                                                        "required": [
+                                                            "code",
+                                                            "identifier"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "acknowledgements": {
+            "$id": "#/properties/acks",
+            "type": "array",
+            "title": "Acknowledgment",
+            "description": "The purpose of a ACK transaction is to allow a Recipient to transmit back to the Submitter the processing status of individual CAF transaction into the Recipient’s systems.  In a CAF_ACK1 file this refers to the technical acceptance of the CAF transaction in terms of this specification, in a CAF_ACK2 file.",
+            "items": {
+                "$id": "#/properties/acks/items",
+                "type": "object",
+                "title": "Acknowledgment for CAF submission",
+                "required": [
+                    "agreement"
+                ],
+                "properties": {
+                    "agreement": {
+                        "$id": "#/properties/ack/properties/caf",
+                        "type": "object",
+                        "title": "Acknowlegment CAF Header Record",
+                        "description": "Basic details of the agreement and recipient processing status.",
+                        "allOf": [{ "$ref": "#/definitions/caf_header_record" }],
+                        "required": [
+                            "transaction_type",
+                            "submitter_agreement_number",
+                            "status_code"
+                        ]
+                    },
+                    "relatedAgreementNumbers": {
+                        "$id": "#/properties/ack/properties/xrf",
+                        "type": "array",
+                        "title": "Related Agreements and Identifiers",
+                        "description": "The Related Agreements and Identifiers (XRF) record contains Recipient identifiers for the agreement and cross-references to related CAF transactions such as other elements of a co-publishing agreement and/or sub-publishing network or hub “agreement numbers”.",
+                        "items": {
+                            "$id": "#/definitions/xrf_related_agreements_identifiers/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "allOf": [{ "$ref": "#/definitions/related_agreements_identifiers" }],
+                            "required": [
+                                "transmitter_code",
+                                "transmitter_agreement_id"
+                            ]
+                        }
+                    },
+                    "statusMessages": {
+                        "$id": "#/definitions/msg_message",
+                        "type": "array",
+                        "title": "Message",
+                        "description": "",
+                        "items": {
+                            "$id": "#/definitions/msg_message/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "allOf": [{ "$ref": "#/definitions/message" }],
+                            "required": [
+                                "message_type",
+                                "record_type",
+                                "message_level",
+                                "validation_number",
+                                "message_text"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    /***************************************
+    CAF records / objects definition
+    ****************************************/
+    "definitions": {
+        "file_header_record": {
+            "$id": "#/definitions/caf_header_record",
+            "type": "object",
+            "title": "Header Record",
+            "description": "This is a required “cover sheet” for transmissions submitted by a participant. It will contain the file control information as well as the name of the submitter.",
+            "properties": {
+                "submitter_type": {
+                    "$id": "#/definitions/caf_header_record/properties/submitter_type",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/submitter_type_codes",
+                    "title": "Submitter Type",
+                    "description": "Indicates if the nature of the Submitter of the file. Values are PB = Publisher, SO = Society, AA = Administrative Agency, WR = Writer, OO = Other",
+                    "pattern": "^(PB|SO|AA|WR|OO)$"
+                },
+                "submitter_code": {
+                    "$id": "#/definitions/caf_header_record/properties/submitter_code",
+                    "type": "string",
+                    "title": "Submitter Code",
+                    "description": "If Submitter Type is equal to WR, the Submitter must enter their assigned CAF IPI Number in this field. If the Submitter Type is equal to PB, SO or AA the Submitter Codes assigned to that entity must be used.",
+                    "default": "0",
+                    "examples": [
+                        "123789997"
+                    ],
+                    "pattern": "^\\w{1,11}$"
+                },
+                "submitter_name": {
+                    "$id": "#/definitions/caf_header_record/properties/submitter_name",
+                    "type": "string",
+                    "title": "Submitter Name",
+                    "description": "The name of the Submitter (publisher, society, agency or other entity)",
+                    "default": "",
+                    "examples": [
+                        "My publishing organization name"
+                    ]
+                },
+                "creation_date_time": {
+                    "$id": "#/definitions/caf_header_record/properties/creation_date_time",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/datetime",
+                    "title": "Creation Date with time",
+                    "description": "The date and time that this file was created."
+                },
+                "transmission_date": {
+                    "$id": "#/definitions/caf_header_record/properties/transmission_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date",
+                    "title": "Transmission Date",
+                    "description": "The date that this file was transmitted to all receiving entities."
+                },
+                "character_set": {
+                    "$id": "#/definitions/caf_header_record/properties/character_set",
+                    "title": "Character Set",
+                    "description": "To be used if this file contains data in a character set other than ASCII.",
+                    "type": "string",
+                    "default": "",
+                    "examples": ["Traditional"],
+                    "pattern": "^(.*)$"
+                },
+                "filename": {
+                    "$id": "#/definitions/caf_header_record/properties/filename",
+                    "type": "string",
+                    "title": "Filename",
+                    "description": "The full filename of the CAF file.",
+                    "default": "",
+                    "examples": ["CAF170037SA_058_V2-2-0.SUB"]
+                },
+                "software_package": {
+                    "$id": "#/definitions/caf_header_record/properties/software_package",
+                    "type": "string",
+                    "title": "Software package",
+                    "description": "Name of the software package from which the file originated",
+                    "default": "",
+                    "examples": ["Vistex software"]
+                },
+                "software_package_version": {
+                    "$id": "#/definitions/caf_header_record/properties/software_package_version",
+                    "type": "string",
+                    "title": "Software package version",
+                    "default": "",
+                    "examples": ["2.01"]
+                }
+            }
+        },
+        "caf_header_record": {
+            "$id": "#/definitions/caf_header_record",
+            "type": "object",
+            "title": "CAF Transaction",
+            "description": "Allows a submitter to communicate to a recipient (or multiple recipients) details of an agreement between two parties in relation to the right to collect income for a specified set of territories and rights.",
+            "properties": {
+                "transaction_type": {
+                    "$id": "#/properties/caf/properties/transaction_type",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/transaction_type_codes",
+                    "title": "Transaction Type",
+                    "description": "The type of CAF transaction. N = New / U = Update / T = Termination"
+                },
+                "submitter_agreement_number": {
+                    "$id": "#/properties/caf/properties/submitter_agreement_number",
+                    "type": "string",
+                    "title": "Submitter Agreement Number",
+                    "description": "The Submitter’s unique identifier for the agreement or deal.",
+                    "default": "0",
+                    "examples": ["123"]
+                },
+                "agreement_signature_date": {
+                    "$id": "#/properties/caf/properties/agreement_signature_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date",
+                    "title": "Agreement Signature Date",
+                    "description": "The date on which the parties signed the agreement (not necessarily the same as the Start Date in the TRM record)."
+                },
+                "status_code": {
+                    "$id": "#/properties/caf/properties/status_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/status_codes",
+                    "title": "Status Code",
+                    "description": "Used in ACK transactions to indicate the status of the processing of the submitted CAF transaction at the Recipient."
+                }
+            }
+        },
+        "core_agreement": {
+            "$id": "#/definitions/core_agreement",
+            "type": "object",
+            "title": "Core Agreement",
+            "description": "The Core Agreement record contains information specific to the agreement and occurring at the agreement level. ",
+            "properties": {
+                "type_of_agreement": {
+                    "$id": "#/definitions/core_agreement/properties/type_of_agreement",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/agreement_type_codes",
+                    "title": "Type Of Agreement",
+                    "description": "The type of agreement.  G = General / S = Specific"
+                },
+                "agreement_supplemental_information": {
+                    "$id": "#/definitions/core_agreement/properties/aggreement_supplemental_information",
+                    "type": "string",
+                    "title": "The Aggreement_supplemental_information Schema",
+                    "description": "Information to assist with the interpretation of a specific agreement.\nFor example, a reference to an accompanying list of works, or to the definition of the specificity of the agreement.\nIf the agreement is a general agreement from a set date then the note \"General from [Date]\" may be provided here.",
+                    "default": "",
+                    "examples": "General from [Date]",
+                    "pattern": "^(.*)$"
+                },
+                "sales_or_manufacture": {
+                    "$id": "#/definitions/core_agreement/properties/sales_or_manufacture",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/sales_or_manufacture_codes",
+                    "title": "Sales Or Manufacture",
+                    "description": "Indicates if the Assignee has acquired rights either for products manufactured or for products sold in the territories of the agreement.  S= Sales / M = Manufacture"
+                },
+                "parties_on_contract": {
+                    "$id": "#/definitions/core_agreement/properties/parties_on_contract",
+                    "type": "string",
+                    "title": "Parties On Contract",
+                    "description": "A text description of the parties to the agreement, such as would be found at the top of the paper contract.",
+                    "default": "",
+                    "examples": "Party A, Party B",
+                    "pattern": "^(.*)$"
+                },
+                "non_roman_alphabet_parties_on_contract": {
+                    "$id": "#/definitions/core_agreement/properties/parties_on_contract",
+                    "type": "string",
+                    "title": "Non Roman Alphabet Parties on Contract",
+                    "description": "A text description of the parties to the agreement, such as would be found at the top of the paper contract.",
+                    "default": "",
+                    "examples": "Party A, Party B",
+                    "pattern": "^(.*)$"
+                },
+                "language_code": {
+                    "$id": "#/definitions/core_agreement/properties/language_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/language_codes_iso6391",
+                    "title": "Language Code",
+                    "description": "The language of the Parties on Contract "
+                },
+                "script_code": {
+                    "$id": "#/definitions/core_agreement/properties/script_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/language_script_codes_iso15924",
+                    "title": "Script Code",
+                    "description": "The code representing the script of Parties on Contract."
+                },
+                "bulk_transfer_of_works": {
+                    "$id": "#/definitions/core_agreement/properties/bulk_transfer_of_works",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/yesNo",
+                    "title": "Bulk Transfer of Works",
+                    "description": "Indicates whether the Submitter is requesting that the Recipient perform a bulk transfer of works which are subject to the agreement from any previous agreements (if that agreement is fully expired in relation to the works) (Y = Yes) or that the Recipient await CWR work registrations for the works in question (N = No)."
+                },
+                "implied_or_obo": {
+                    "$id": "#/definitions/core_agreement/properties/implied_or_obo",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/implied_or_obo_codes",
+                    "title": "Implied/On-Behalf Of",
+                    "description": "Indicates that CAF transaction represents an agreement which does not involve an Assignee controlled, owned or administered by the Submitter.\nUsed where the Recipient is informing the Submitter of creation of an implied agreement above that of the Submitter’s in the chain of copyright (I = Implied).\nAlso used whether the Submitter is informing the Recipient of the existence of an agreement above that of the Submitter’s in the chain of copyright (B = On Behalf Of).\nIf neither is true this field should have a value of N = Neither"
+                },
+                "writer_mechanical_reason_code": {
+                    "$id": "#/definitions/core_agreement/properties/writer_mechanical_reason_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/mechanical_reason_codes",
+                    "title": "Writer Mechanicals Reason Code",
+                    "description": "Code explaining why Assignee can collect over the society mandated maximum publisher mechanical share in the Territory."
+                },
+                "usa_license_indicator": {
+                    "$id": "#/definitions/core_agreement/properties/usa_license_indicator",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/usa_license_indicator_codes",
+                    "title": "USA License Indicator",
+                    "description": "Defines the US Society preference for licensing performing rights, via AMRA, ASCAP, BMI, GMR or SESAC."
+                },
+                "gema_remuneration_claim_indicator": {
+                    "$id": "#/definitions/core_agreement/properties/gema_remuneration_claim_indicator",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/yesNo",
+                    "title": "GEMA Remuneration Claim Indicator",
+                    "description": "If submitter marks Y this indicates that they have been authorised by the writer to receive publisher’s share for remuneration rights; and indemnifies GEMA if such claim is incorrect.\nIf submitter marks N they will not receive publisher’s share for remuneration rights"
+                }
+            }
+        },
+        "agreement_term": {
+            "$id": "#/definitions/agreement_term",
+            "type": "object",
+            "title": "Agreement Term",
+            "description": "The Agreement Term (TRM) record contains information defining the territorial scope of the agreement and the duration and the start date in each territory.",
+            "properties": {
+                "start_date": {
+                    "$id": "#/definitions/agreement_term/properties/start_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date",
+                    "title": "Start Date",
+                    "description": "The date on which the Assignee’s rights commence (as opposed to the Agreement Signature Date in the CAF Header Record which is the date on which the paperwork was signed)."
+                },
+                "prior_royalties": {
+                    "$id": "#/definitions/agreement_term/properties/prior_royalties",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/yesNo",
+                    "title": "Prior Royalties",
+                    "description": "A flag to indicate if the Assignee is allowed to collect royalties which were accrued before the start of the agreement but not yet paid out."
+                },
+                "expected_termination": {
+                    "$id": "#/definitions/agreement_term/properties/expected_termination",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/expected_termination_codes",
+                    "title": "Expected Termination",
+                    "description": "Provides an indication of the expected termination of rights in the territory described in the accompanying T.  I = Indefinite - the termination cannot be defined at present.  L = LOC - the rights persist for the life of copyright. O = Other – a further explanation will be given in the Expected Termination Text field."
+                },
+                "expected_termination_text": {
+                    "$id": "#/definitions/agreement_term/properties/expected_termination_text",
+                    "type": "string",
+                    "title": "Expected Termination Text",
+                    "description": "A text description of the terms on which the rights will be terminated in the territory described.",
+                    "default": "",
+                    "examples": "Rights terminated in Russia from the 2nd of June, 2020.",
+                    "pattern": "^(.*)$"
+                },
+                "post_term_retention_period": {
+                    "$id": "#/definitions/agreement_term/properties/post_term_retention_period",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/yesNo",
+                    "title": "Post Term Retention Period",
+                    "description": "Indicates whether or not the Submitter anticipates that the Assignee will retain rights to license and collect income beyond the expiry of the term of the agreement."
+                },
+                "post_term_collection_period": {
+                    "$id": "#/definitions/agreement_term/properties/post_term_collection_period",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/yesNo",
+                    "title": "Post Term Collection Period",
+                    "description": "Indicates whether or not the Submitter anticipates that the Assignee will retain rights to collect income generated during the term or retention beyond the expiry of the term or any retention period."
+                }
+            }
+        },
+        "assignor": {
+            "$id": "#/definitions/assignor",
+            "type": "object",
+            "title": "Assignor",
+            "description": "The Assignor (ASR) record contains information identifying the party to the agreement which is passing collection rights to the Assignee (as identified in the ASE record).",
+            "properties": {
+                "person": {
+                    "$id": "#/definitions/assignor/properties/person",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/yesNo",
+                    "title": "Person",
+                    "description": "Y/N indicates whether the Assignor is a person or an entity (such as a publishing company)."
+                },
+                "name": {
+                    "$id": "#/definitions/assignor/properties/name",
+                    "type": "string",
+                    "title": "Assignor Name",
+                    "description": "Last name or surname (if a person) or name of entity (if a company or other entity).",
+                    "default": "",
+                    "examples": "Big Up Music LLC",
+                    "pattern": "^(.*)$"
+                },
+                "given_name": {
+                    "$id": "#/definitions/assignor/properties/given_name",
+                    "type": "string",
+                    "title": "Assignor Given Name(s)",
+                    "description": "Given name(s) of the Assignor in \"natural\" order",
+                    "default": "",
+                    "examples": [
+                        "Bob"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "nra_given_name": {
+                    "$id": "#/definitions/assignor/properties/nra_given_name",
+                    "type": "string",
+                    "title": "Non Roman Alphabet Assignor Given Name(s)",
+                    "description": "Given name(s) of the Assignor in \"natural\" order",
+                    "default": "",
+                    "examples": [
+                        "Bob"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "pro_affiliation": {
+                    "$id": "#/definitions/assignor/properties/pro_affiliation",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/pro_affiliation_codes",
+                    "title": "Assignor PRO Affiliation",
+                    "description": "Primary performance rights society affiliation of the Assignor."
+                },
+                "ipi_name_number": {
+                    "$id": "#/definitions/assignor/properties/ipi_name_number",
+                    "type": "string",
+                    "title": "Assignor IPI Name Number",
+                    "description": "An IPI number identifying the Assignor",
+                    "default": "",
+                    "examples": [
+                        "00034567893"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "submitter_ip_code": {
+                    "$id": "#/definitions/assignor/properties/submitter_ip_code",
+                    "type": "string",
+                    "title": "Submitter Assignor IP Code",
+                    "description": "Submitter internal identifier for Assignor",
+                    "default": "",
+                    "examples": [
+                        "12535"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "name_nra_script_code": {
+                    "$id": "#/definitions/assignor/properties/name_nra_script_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/language_script_codes_iso15924",
+                    "title": "Assignor Name NRA Script Code",
+                    "description": "The code representing the script of this name if given in a Non-Roman Alphabet."
+                }
+            }
+        },
+        "assignee": {
+            "$id": "#/definitions/assignee",
+            "type": "object",
+            "title": "Assignee",
+            "description": "The Assignee (ASE) record contains information identifying the party to the agreement which is granted collection rights by the Assignor (as identified in the ASR record).",
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "$id": "#/definitions/assignee/properties/name",
+                    "type": "string",
+                    "title": "Assignee Name",
+                    "description": "Name of entity.",
+                    "default": "",
+                    "examples": "Big Up Music LLC",
+                    "pattern": "^(.*)$"
+                },
+                "nra_assignee_name": {
+                    "$id": "#/definitions/assignee/properties/nra_assignee_name",
+                    "type": "string",
+                    "title": "Name of entity",
+                    "description": "Non Roman Alphabet Assignee Name",
+                    "default": "",
+                    "examples": "Big Up Music LLC",
+                    "pattern": "^(.*)$"
+                },
+                "pro_affiliation": {
+                    "$id": "#/definitions/assignee/properties/pro_affiliation",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/pro_affiliation_codes",
+                    "title": "Assignee PRO Affiliation",
+                    "description": "Primary performance rights society affiliation of the Assignee."
+                },
+                "ipi_name_number": {
+                    "$id": "#/definitions/assignee/properties/ipi_name_number",
+                    "type": "string",
+                    "title": "Assignee IPI Name Number",
+                    "description": "An IPI number identifying the Assignee",
+                    "default": "",
+                    "examples": [
+                        "00034567893"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "submitter_ip_code": {
+                    "$id": "#/definitions/assignee/properties/submitter_ip_code",
+                    "type": "string",
+                    "title": "Submitter Assignee IP Code",
+                    "description": "Submitter’s internal identifier for Assignee",
+                    "default": "",
+                    "examples": [
+                        "12535"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "company_grouping_code": {
+                    "$id": "#/definitions/assignee/properties/company_grouping_code",
+                    "type": "string",
+                    "title": "Company Grouping",
+                    "description": "Submitter’s internal grouping code to which the Assignee belongs.",
+                    "default": "",
+                    "examples": [
+                        "12A28"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "name_nra_script_code": {
+                    "$id": "#/definitions/assignee/properties/name_nra_script_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/language_script_codes_iso15924",
+                    "title": "Assignee Name NRA Script Code",
+                    "description": "The code representing the script of this name if given in a Non-Roman Alphabet."
+                }
+            }
+        },
+        "shares": {
+            "$id": "#/definitions/shares",
+            "type": "object",
+            "title": "Shares",
+            "description": "The Shares (SHR) record describes the shares of royalties (arising from licensing of rights) collectable by the Assignee, reserved to the Assignor and directly collectable by the creators.",
+            "properties": {
+                "right_type": {
+                    "$id": "#/definitions/shares/properties/right_type",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/right_type_codes",
+                    "title": "Right Type",
+                    "description": "The type of right to which the collectable shares given apply."
+                },
+                "creator_share_retained": {
+                    "$id": "#/definitions/shares/properties/creator_share_retained",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/share",
+                    "title": "Creator Share Retained",
+                    "description": "Defines the proportion of the total collectable shares of a work subject to this agreement which will be collected directly by the creators of the work."
+                },
+                "publisher_share_retained": {
+                    "$id": "#/definitions/shares/properties/publisher_share_retained",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/share",
+                    "title": "Publisher Share Retained",
+                    "description": "Defines the proportion of the total collectable shares of a work subject to this agreement which the Assignor is reserving to itself either for itself to collect or for another publisher to collect."
+                },
+                "assignee_collectable_share": {
+                    "$id": "#/definitions/shares/properties/assignee_collectable_share",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/share",
+                    "title": "Assignee Collectable Share",
+                    "description": "Defines the proportion of the total collectable shares of a work subject to this agreement which will be collected by the Assignee."
+                }
+            }
+        },
+        "territory_inclusion_exclusion": {
+            "$id": "#/definitions/territory_inclusion_exclusion",
+            "type": "object",
+            "title": "Territory Include / Exclude for Term",
+            "description": "The Territory Include / Exclude for Term, Share and Termination. Contains information defining the territories covered by a given Term, Share and Termination. ",
+            "properties": {
+                "tisn": { "$ref": "#/definitions/common_properties/properties/tisn" },
+                "include_exclude": { "$ref": "#/definitions/common_properties/properties/include_exclude" }
+            }
+        },
+        "work_territory_inclusion_exclusion": {
+            "$id": "#/definitions/work_territory_inclusion_exclusion",
+            "type": "object",
+            "title": "Work Territory Include / Exclude",
+            "description": "The Work Territory Include / Exclude (WTR) record contains information defining the territories covered by a given WRK record, if given.",
+            "properties": {
+                "tisn": { "$ref": "#/definitions/common_properties/properties/tisn" },
+                "include_exclude": { "$ref": "#/definitions/common_properties/properties/include_exclude" },
+                "exclusion_until": { "$ref": "#/definitions/common_properties/properties/exclusion_until" },
+                "exclusion_until_date": { "$ref": "#/definitions/common_properties/properties/exclusion_until_date" }
+            }
+        },
+        "usage_include_exclude": {
+            "$id": "#/definitions/usage_include_exclude",
+            "type": "object",
+            "title": "Usage Include / Exclude",
+            "description": "The Usage Include / Exclude (UIE) record describes the usage types which are explicitly included in the Right Type in the associated SHR record and/or the usage types which are excluded from in the Right Type in the associated SHR record.",
+            "properties": {
+                "include_exclude": {
+                    "$id": "#/definitions/usage_include_exclude/properties/include_exclude",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/include_exclude_codes",
+                    "title": "Include / Exclude",
+                    "description": "A flag to indicate if the Usage Type is included or excluded from the territories. (I) Include / (E) Exclude."
+                },
+                "usage_type": {
+                    "$id": "#/definitions/usage_include_exclude/properties/usage_type",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/usage_type_codes",
+                    "title": "Usage Type ",
+                    "description": "The type of usage to which the Include / Exclude applies."
+                }
+            }
+        },
+        "library_production_music": {
+            "$id": "#/definitions/library_production_music",
+            "type": "object",
+            "title": "Library / Production Music",
+            "properties": {
+                "library_music": {
+                    "$id": "#/definitions/library_production_music/properties/library_music",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/yesNo",
+                    "title": "Library Music",
+                    "description": "Y / N indicates whether or not the music in this deal is exclusively library or production music."
+                },
+                "recording_prefix": {
+                    "$id": "#/definitions/library_production_music/properties/recording_prefix",
+                    "type": "string",
+                    "title": "Recording Prefix",
+                    "description": "Primary catalog number prefix for those recordings which form part of the production music library in question.",
+                    "default": "",
+                    "examples": [
+                        "R2"
+                    ],
+                    "pattern": "^(.*)$"
+                }
+            }
+        },
+        "related_agreements_identifiers": {
+            "$id": "#/definitions/related_agreements_identifiers",
+            "type": "object",
+            "title": "Related Agreements and Identifiers",
+            "description": "The Related Agreements and Identifiers (XRF) record contains Recipient identifiers for the agreement and cross-references to related CAF transactions such as other elements of a co-publishing agreement and/or sub-publishing network or hub “agreement numbers”.",
+            "properties": {
+                "transmitter_code": {
+                    "$id": "#/definitions/related_agreements_identifiers/properties/transmitter_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/transmitter_codes",
+                    "title": "Transmitter Code",
+                    "description": "Number assigned to the Recipient whose code can be found in the Transmitter Identifier field."
+                },
+                "transmitter_agreement_id": {
+                    "$id": "#/definitions/related_agreements_identifiers/properties/transmitter_agreement_id",
+                    "type": "string",
+                    "title": "Transmitter Agreement Identifier",
+                    "description": "An identifier that relates to this agreement which was issued by the Recipient or Submitter identified in Transmitter Code.",
+                    "default": "",
+                    "examples": "1435B3",
+                    "pattern": "^(.*)$"
+                },
+                "related_agreement_type": {
+                    "$id": "#/definitions/related_agreements_identifiers/properties/related_agreement_type",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/related_agreement_type_codes",
+                    "title": "Related Agreement Type",
+                    "description": "If the Transmitter Identifier relates to another agreement, either as a (C) co-publishing agreement or an (R) existing sub-publishing network or hub already registered at the Recipient."
+                }
+            }
+        },
+        "work_details": {
+            "$id": "#/definitions/work_details",
+            "type": "object",
+            "title": "Work Details",
+            "description": "The Work Details (WRK) record contains details of works which are subject to the agreement being described, such details being sufficient to identify the works, but not details which specify work level collection shares, chain of copyright etc.. which are covered by the CWR format.",
+            "properties": {
+                "iswc": {
+                    "$id": "#/definitions/work_details/properties/iswc",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/ISWC"
+                },
+                "title": {
+                    "$id": "#/definitions/work_details/properties/title",
+                    "type": "string",
+                    "title": "Work Title",
+                    "description": "Primary title of the work.",
+                    "default": "",
+                    "examples": [
+                        "hello"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "nra_work_title": {
+                    "$id": "#/definitions/work_details/properties/nra_work_title",
+                    "type": "string",
+                    "title": "Non Roman Alphabet Work Title",
+                    "description": "Primary title of the work expressed in non roman alphabet characters.",
+                    "default": "",
+                    "examples": [
+                        "hello"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "nra_work_title_script_code": {
+                    "$id": "#/definitions/work_details/properties/nra_work_title_script_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/language_script_codes_iso15924",
+                    "title": "Work Title NRA Script Code",
+                    "description": "The code representing the script of the Non-Roman Alphabet Work Title if given."
+                },
+                "creators": {
+                    "$id": "#/definitions/work_details/properties/creators",
+                    "type": "string",
+                    "title": "Work Creators",
+                    "description": "The creators of the work. In the format:\nLast Name, Given Name / Last Name, Given Name / etc...\nor\nLast Name / Last Name / Last Name etc...",
+                    "default": "",
+                    "examples": [
+                        "Dylan, Bob"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "nra_creators": {
+                    "$id": "#/definitions/work_details/properties/nra_creators",
+                    "type": "string",
+                    "title": "Non Roman Alphabet Work Creators",
+                    "description": "The creators of the work. In the format:\nLast Name, Given Name / Last Name, Given Name / etc...\nor\nLast Name / Last Name / Last Name etc...",
+                    "default": "",
+                    "examples": [
+                        "hello"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "nra_creators_script_code": {
+                    "$id": "#/definitions/work_details/properties/nra_creators_script_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/language_script_codes_iso15924",
+                    "title": "Work Creators NRA Script Code",
+                    "description": "The code representing the script of the Non-Roman Alphabet Work Creators if given."
+                },
+                "submitter_work_number": {
+                    "$id": "#/definitions/work_details/properties/submitter_work_number",
+                    "type": "string",
+                    "title": "Submitter Work Number",
+                    "description": "Number assigned to the work by the Submitter. This number must be unique for the Submitter.",
+                    "default": "",
+                    "examples": [
+                        "121245"
+                    ],
+                    "pattern": "^(.*)$"
+                }
+            }
+        },
+        "termination": {
+            "$id": "#/definitions/termination",
+            "type": "object",
+            "title": "Termination",
+            "description": "The Termination (EXP) record contains information relating to the end of rights to collect for a right type and describes any retention or collection period which applies.",
+            "properties": {
+                "termination_date": {
+                    "title": "Termination Date",
+                    "description": "The date from which the EXP details are effective.",
+                    "$id": "#/definitions/termination/properties/termination_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date"
+                },
+                "request_terminated_works_list": {
+                    "$id": "#/definitions/termination/properties/request_terminated_works_list",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/yesNo",
+                    "title": "Request Terminated Works List",
+                    "description": "Does the Submitter request that the Recipient provide a list of works which have been amended to reflect the EXP.  Such a list could be provided using the returned CAF_ACK2 file."
+                },
+                "works_retained": {
+                    "$id": "#/definitions/termination/properties/works_retained",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/works_retained_codes",
+                    "title": "Works Retained",
+                    "description": "Indicates which, if any, of the works associated with the agreement are subject to a retention period."
+                },
+                "default_retained_until": {
+                    "$id": "#/definitions/termination/properties/default_retained_until",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/default_retained_until_codes",
+                    "title": "Default Retained Until",
+                    "description": "If a work is retained, the default period for which the work is retained by the Assignee (the period from which any work level exceptions will vary)."
+                },
+                "default_retained_until_date": {
+                    "$id": "#/definitions/termination/properties/default_retained_until_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date",
+                    "title": "Default Retained Until Date",
+                    "description": "If Default Retained Until = D, then the date on which the retention period ends."
+                },
+                "default_collection_until": {
+                    "$id": "#/definitions/termination/properties/default_collection_until",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/default_collection_until_codes",
+                    "title": "Default Collection Until",
+                    "description": "If a work is subject to a collection period, the default period for which the income earned in the term or retention may be collected by the Assignee (the period from which any work level exceptions will vary)."
+                },
+                "default_collection_until_date": {
+                    "$id": "#/definitions/termination/properties/default_collection_until_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date",
+                    "title": "Default Collection Until Date",
+                    "description": "If Default Collection Until = D, then the date on which the collection period ends."
+                }
+            }
+        },
+        "retained_works_detail": {
+            "$comment": "Retained Work",
+            "$id": "#/definitions/retained_works_detail",
+            "type": "object",
+            "title": "Retained Works",
+            "description": "The Retained Works (RWK) record contains details of works which are subject to termination as described in an associated EXP record.  An RWK may further describe any exceptions to any default retention or collection period as set out in the EXP.",
+            "properties": {
+                "iswc": {
+                    "$id": "#/definitions/retained_works_detail/properties/iswc",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/ISWC"
+                },
+                "title": {
+                    "$id": "#/definitions/retained_works_detail/properties/title",
+                    "type": "string",
+                    "title": "Work Title",
+                    "description": "Primary title of the work.",
+                    "default": "",
+                    "examples": "hello",
+                    "pattern": "^(.*)$"
+                },
+                "nra_work_title": {
+                    "$id": "#/definitions/retained_works_detail/properties/nra_work_title",
+                    "type": "string",
+                    "title": "Non Roman Alphabet Work Title",
+                    "description": "Primary title of the work expressed in non roman alphabet characters.",
+                    "default": "",
+                    "examples": [
+                        "hello"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "nra_work_title_script_code": {
+                    "$id": "#/definitions/retained_works_detail/properties/nra_work_title_script_code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/language_script_codes_iso15924",
+                    "title": "Work Title NRA Script Code",
+                    "description": "The code representing the script of the Non-Roman Alphabet Work Title if given."
+                },
+                "submitter_work_number": {
+                    "$id": "#/definitions/retained_works_detail/properties/submitter_work_number",
+                    "type": "string",
+                    "title": "Submitter Work Number",
+                    "description": "Number assigned to the work by the Submitter. This number must be unique for the Submitter.",
+                    "default": "",
+                    "examples": "121245",
+                    "pattern": "^(.*)$"
+                },
+                "use_default_retention": {
+                    "$id": "#/definitions/retained_works_detail/properties/use_default_retention",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/use_default_retention_codes",
+                    "title": "Use Default Retention",
+                    "description": "(D)  - Use the default collection period described in the EXP\n(S) – Use the retention period described in this RWK"
+                },
+                "work_retained_until": {
+                    "$id": "#/definitions/retained_works_detail/properties/work_retained_until",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/default_retained_until_codes",
+                    "title": "Work Retained Until",
+                    "description": "If a work is retained, the default period for which the work is retained by the Assignee (the period from which any work level exceptions will vary)."
+                },
+                "work_retained_until_date": {
+                    "$id": "#/definitions/retained_works_detail/properties/work_retained_until_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date",
+                    "title": "Work Retained Until Date",
+                    "description": "If Default Retained Until = D, then the date on which the retention period ends"
+                },
+                "work_collection_until": {
+                    "$id": "#/definitions/retained_works_detail/properties/work_collection_until",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/default_collection_until_codes",
+                    "title": "Work Collection Until",
+                    "description": "If a work is subject to a collection period, the default period for which the income earned in the term or retention may be collected by the Assignee (the period from which any work level exceptions will vary)."
+                },
+                "work_collection_until_date": {
+                    "$id": "#/definitions/retained_works_detail/properties/work_collection_until_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date",
+                    "title": "Work Collection Until Date",
+                    "description": "If Default Collection Until = D, then the date on which the collection period ends."
+                }
+            }
+        },
+        "recipient_work_number": {
+            "$id": "#/definitions/recipient_work_number",
+            "type": "object",
+            "title": "Recipient Work Number",
+            "description": "The Recipient Work Number (RWN) record contains Recipient identifiers for works listed in WRK or RWK records.",
+            "properties": {
+                "code": {
+                    "$id": "#/definitions/recipient_work_number/properties/code",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/transmitter_codes",
+                    "title": "Recipient Code",
+                    "description": "Tansmitter code assigned to Recipient which generated the Recipient Identifier.",
+                    "examples": ["UN"]
+                },
+                "identifier": {
+                    "$id": "#/definitions/recipient_work_number/properties/identifier",
+                    "type": "string",
+                    "title": "Recipient Identifier",
+                    "description": "An identifier that relates to this work which was issued by the Recipient identified in Recipient Code.",
+                    "default": "",
+                    "examples": ["UNI-12345"],
+                    "pattern": "^(.*)$"
+                }
+            }
+        },
+        "message": {
+            "$id": "#/definitions/message",
+            "type": "object",
+            "title": "Message",
+            "description": "List all messages generated as a result of editing this transaction.",
+            "properties": {
+                "message_type": {
+                    "$id": "#/definitions/message/properties/message_type",
+                    "type": "string",
+                    "anyOf": [{ "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_message_level_codes" }],
+                    "title": "The message_type Schema",
+                    "description": "",
+                    "default": "",
+                    "examples": [
+                        "T"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "record_type": {
+                    "$id": "#/definitions/message/properties/record_type",
+                    "type": "string",
+                    "anyOf": [{ "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_transaction_records_codes" }],
+                    "title": "The message_type Schema",
+                    "description": "List of record type",
+                    "default": "",
+                    "examples": [
+                        "caf"
+                    ],
+                    "pattern": "^(.*)$"
+                },
+                "message_level": {
+                    "$id": "#/definitions/message/properties/message_level",
+                    "type": "string",
+                    "anyOf": [{ "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_message_level_codes" }],
+                    "title": "Message level Schema",
+                    "description": "",
+                    "default": "",
+                    "examples": "R",
+                    "pattern": "^(.*)$"
+                },
+                "validation_number": {
+                    "$id": "#/definitions/message/properties/validation_number",
+                    "type": "string",
+                    "title": "The validation Schema",
+                    "description": "",
+                    "default": "",
+                    "examples": "1",
+                    "pattern": "^(.*)$"
+                },
+                "message_text": {
+                    "$id": "#/definitions/message/properties/message_text",
+                    "type": "string",
+                    "title": "The message_text Schema",
+                    "description": "",
+                    "default": "",
+                    "examples": "Only one AGR Core Agreement record is allowed per CAF Transaction",
+                    "pattern": "^(.*)$"
+                }
+            }
+        },
+        "common_properties": {
+            "properties": {
+                "tisn": {
+                    "$id": "#/definitions/common_properties/properties/tisn",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/tisn_codes",
+                    "title": "TIS Numeric Code ",
+                    "description": "Territory to which the Include / Exclude applies.  Values can be found in the TIS Code Table."
+                },
+                "include_exclude": {
+                    "$id": "#/definitions/common_properties/properties/properties/include_exclude",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/include_exclude_codes",
+                    "title": "Include / Exclude",
+                    "description": "A flag to indicate if the TIS Numeric Code is included or excluded from the territories. (I) Include / (E) Exclude."
+                },
+                "exclusion_until": {
+                    "$id": "#/definitions/common_properties/properties/exclusion_until",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/excluded_until_codes",
+                    "title": "Exclusion Until",
+                    "description": "If the work is (E) Excluded the length of the exclusion.\n(D) Date - Until a date as specified in Exclusion Until Date\n(N) Until Further Notice – Until the Submitter notifies otherwise\n(L) Life of Copyright – The work will never form part of the agreement"
+                },
+                "exclusion_until_date": {
+                    "$id": "#/definitions/common_properties/properties/exclusion_until_date",
+                    "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/data_types/date",
+                    "title": "Exclusion Until Date",
+                    "description": "If the work is (E) Excluded and the Excluded Until = D, then the date until which the work is excluded."
+                }
+            }
+        }
+    }
+}
