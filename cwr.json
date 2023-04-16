@@ -1,0 +1,101 @@
+{
+    "HDR": {
+        "submitter_type": "",
+        "submitter_code": "",
+        "submitter_name": "",
+        "submitter_ipi_name_number": "",
+        "creation_date": "",
+        "creation_time": "",
+        "transmission_date": "",
+        "character_set": "",
+        "version": "",
+        "revision": "",
+        "software_package": "",
+        "software_package_version": "",
+        "filename": "",
+        "GHR": {
+            "transacation_type": "",
+            "group_code": "",
+            "batch_request": "",
+            "WRK": {
+                "SPU": {
+                    "SPT": {
+
+                    },
+                    "NPN": {
+
+                    }
+                },
+                "OPU": {
+                    "OPT": {
+
+                    },
+                    "NPN": {
+
+                    }
+                },
+                "SWR": {
+                    "NWN": {
+
+                    },
+                    "SWT": {
+
+                    },
+                    "MAN": {
+
+                    },
+                    "PWR": {
+
+                    }
+                },
+                "OWR": {
+                    "OWT": {
+
+                    },
+                    "MAN": {
+
+                    },
+                    "PWR": {
+
+                    }
+                },
+                "ALT": {
+
+                },
+                "NAT": {
+
+                },
+                "OWK": {
+
+                },
+                "NOT": {
+                    "NOW": {
+
+                    }
+                },
+                "PER": {
+
+                },
+                "NPR": {
+
+                },
+                "REC": {
+
+                },
+                "NRC": {
+
+                }
+            },
+            "GRT": {
+                "group_code": "",
+                "transaction_count": "",
+                "record_count": ""
+            }
+        },
+        "TRL": {
+            "group_count": "",
+            "transaction_count": "",
+            "record_count": ""
+        }
+    }
+}
