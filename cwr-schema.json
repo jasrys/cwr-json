@@ -9,22 +9,31 @@
             "type": "object",
             "properties": {
                 "submitter_type": {
+                    "description": "Indicates the nature of the submitter of the file. Values are PB = Publisher, SO = Society, AA = Administrative Agency, WR = Writer, OO = Other",
                     "type": "string",
                     "enum": ["PB", "SO", "AA", "WR", "OO"]
                 },
                 "submitter_name": {
+                    "description": "The name of the submitter (publisher, society, agency, writer, or other entity)",
                     "type": "string"
                 },
                 "properties": {
                     "WRK": {
+                        "description": "Information about a musical work",
                         "type": "object",
                         "properties": {
                             "work_title": {
+                                "description": "Primary title of the work",
+                                "type": "string"
+                            },
+                            "submitter_work_number": {
+                                "description": "Number assigned to the work by the submitter. Must be unique to the submitter",
                                 "type": "string"
                             }
                         },
                         "required": [
-                            "work_title"
+                            "work_title",
+                            "submitter_work_number"
                         ]
                     }
                 }
