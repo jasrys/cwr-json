@@ -18,84 +18,322 @@
             "group_code": "",
             "batch_request": "",
             "WRK": {
+                "work_title": "",
+                "language_code": "",
+                "submitter_work_number": "",
+                "iswc": "",
+                "copyright_date": "",
+                "copyright_number": "",
+                "musical_work_distribution_category": "",
+                "duration": "",
+                "recorded_indicator": "",
+                "text_music_relationship": "",
+                "composite_type": "",
+                "version_type": "",
+                "excerpt_type": "",
+                "music_arrangement": "",
+                "lyric_adaptation": "",
+                "grand_rights_indicator": "",
+                "composite_component_count": "",
+                "printed_edition_publication_date": "",
+                "exceptional_clause": "",
+                "opus_number": "",
+                "catalogue_number": "",
+                "priority_flag": "",
                 "SPU": {
+                    "publisher_sequence_number": "",
+                    "interested_party_number": "",
+                    "publisher_name": "",
+                    "publisher_unknown_indicator": "",
+                    "publisher_role": "",
+                    "publisher_ipi_name_number": "",
+                    "publisher_ipi_base_number": "",
+                    "usa_license_indicator": "",
                     "SPT": {
-
+                        "sequence_number": "",
+                        "interested_party_number": "",
+                        "pr_collection_share": "",
+                        "mr_collection_share": "",
+                        "sr_collection_share": "",
+                        "inclusion_exclusion_indicator": "",
+                        "territory_code": "",
+                        "pr_affiliation_society_number": "",
+                        "mr_affiliation_society_number": "",
+                        "sr_affiliation_society_number": "",
+                        "special_agreement_indicator": "",
+                        "first_recording_refusal_indicator": "",
+                        "submitter_agreement_number": "",
+                        "recipient_agreement_number": "",
+                        "agreement_type": "",
+                        "recipient_type": ""
                     },
                     "NPN": {
-
+                        "publisher_sequence_number": "",
+                        "interested_party_number": "",
+                        "publisher_name": "",
+                        "language_code": "",
+                        "script_code": ""
                     }
                 },
                 "OPU": {
+                    "publisher_sequence_number": "",
+                    "interested_party_number": "",
+                    "publisher_name": "",
+                    "publisher_unknown_indicator": "",
+                    "publisher_role": "",
+                    "publisher_ipi_name_number": "",
+                    "publisher_ipi_base_number": "",
+                    "usa_license_indicator": "",
                     "OPT": {
-
+                        "sequence_number": "",
+                        "interested_party_number": "",
+                        "pr_collection_share": "",
+                        "mr_collection_share": "",
+                        "sr_collection_share": "",
+                        "inclusion_exclusion_indicator": "",
+                        "territory_code": "",
+                        "pr_affiliation_society_number": "",
+                        "mr_affiliation_society_number": "",
+                        "sr_affiliation_society_number": "",
+                        "special_agreement_indicator": "",
+                        "first_recording_refusal_indicator": "",
+                        "submitter_agreement_number": "",
+                        "recipient_agreement_number": "",
+                        "agreement_type": "",
+                        "recipient_type": ""
                     },
                     "NPN": {
-
+                        "publisher_sequence_number": "",
+                        "interested_party_number": "",
+                        "publisher_name": "",
+                        "language_code": "",
+                        "script_code": ""
                     }
                 },
                 "SWR": {
+                    "interested_party_number": "",
+                    "writer_last_name": "",
+                    "writer_first_name": "",
+                    "writer_unknown_indicator": "",
+                    "writer_role": "",
+                    "writer_ipi_base_number": "",
+                    "reversionary_indicator": "",
+                    "first_recording_refusal_indicator": "",
+                    "work_for_hire_indicator": "",
+                    "usa_license_indicator": "",
                     "NWN": {
-
+                        "interested_party_number": "",
+                        "writer_last_name": "",
+                        "writer_first_name": "",
+                        "language_code": "",
+                        "script_code": ""
                     },
                     "SWT": {
-
+                        "sequence_number": "",
+                        "interested_party_number": "",
+                        "pr_collection_share": "",
+                        "mr_collection_share": "",
+                        "sr_collection_share": "",
+                        "inclusion_exclusion_indicator": "",
+                        "territory_code": "",
+                        "pr_affiliation_society_number": "",
+                        "mr_affiliation_society_number": "",
+                        "sr_affiliation_society_number": "",
+                        "recipient_code": ""
                     },
                     "MAN": {
-
+                        "writer_ip_number": "",
+                        "pr_manuscript_share": "",
+                        "mr_manuscript_share": "",
+                        "sr_manuscript_share": ""
                     },
                     "PWR": {
-
+                        "publisher_sequence_number": "",
+                        "publisher_ip_number": "",
+                        "writer_ip_number": "",
+                        "submitter_agreement_number": "",
+                        "recipient_code": "",
+                        "recipient_agreement_number": "",
+                        "agreement_type": ""
                     }
                 },
                 "OWR": {
+                    "interested_party_number": "",
+                    "writer_last_name": "",
+                    "writer_first_name": "",
+                    "writer_unknown_indicator": "",
+                    "writer_role": "",
+                    "writer_ipi_base_number": "",
+                    "reversionary_indicator": "",
+                    "first_recording_refusal_indicator": "",
+                    "work_for_hire_indicator": "",
+                    "usa_license_indicator": "",
                     "OWT": {
-
+                        "sequence_number": "",
+                        "interested_party_number": "",
+                        "pr_collection_share": "",
+                        "mr_collection_share": "",
+                        "sr_collection_share": "",
+                        "inclusion_exclusion_indicator": "",
+                        "territory_code": "",
+                        "pr_affiliation_society_number": "",
+                        "mr_affiliation_society_number": "",
+                        "sr_affiliation_society_number": "",
+                        "recipient_code": ""
                     },
                     "MAN": {
-
+                        "writer_ip_number": "",
+                        "pr_manuscript_share": "",
+                        "mr_manuscript_share": "",
+                        "sr_manuscript_share": ""
                     },
                     "PWR": {
-
+                        "publisher_sequence_number": "",
+                        "publisher_ip_number": "",
+                        "writer_ip_number": "",
+                        "submitter_agreement_number": "",
+                        "recipient_code": "",
+                        "recipient_agreement_number": "",
+                        "agreement_type": ""
                     }
                 },
                 "ALT": {
-
+                    "alternative_title": "",
+                    "title_type": "",
+                    "language_code": ""
                 },
                 "NAT": {
-
+                    "title": "",
+                    "title_type": "",
+                    "language_code": "",
+                    "script_code": ""
                 },
                 "OWK": {
-
-                },
-                "NOT": {
+                    "original_work_title": "",
+                    "iswc_of_original_work": "",
+                    "submitter_original_work_number": "",
+                    "opus_number": "",
+                    "catalogue_number": "",
+                    "duration": "",
+                    "language_code": "",
+                    "writer_1_last_name": "",
+                    "writer_1_first_name": "",
+                    "writer_1_ipi_name_number": "",
+                    "writer_1_ipi_base_number": "",
+                    "writer_2_last_name": "",
+                    "writer_2_first_name": "",
+                    "writer_2_ipi_name_number": "",
+                    "writer_2_ipi_base_number": "",
+                    "NOT": {
+                        "title": "",
+                        "language_code": "",
+                        "script_code": ""
+                    },
                     "NOW": {
-
+                        "writer_name": "",
+                        "writer_first_name": "",
+                        "writer_position": "",
+                        "language_code": "",
+                        "script_code": ""
                     }
                 },
                 "PER": {
-
+                    "performing_artist_name": "",
+                    "performing_artist_first_name": "",
+                    "performing_artist_ipi_name_number": "",
+                    "international_standard_name_identifier": "",
+                    "performer_language": "",
+                    "performance_dialect": ""
                 },
                 "NPR": {
-
+                    "performing_artist_name": "",
+                    "performing_artist_first_name": "",
+                    "performing_artist_ipi_name_number": "",
+                    "international_standard_name_identifier": "",
+                    "performer_language": "",
+                    "performance_dialect": "",
+                    "language_code": "",
+                    "script_code": ""
                 },
                 "REC": {
-
+                    "release_date": "",
+                    "recording_duration": "",
+                    "isrc": "",
+                    "recording_title": "",
+                    "version_title": "",
+                    "display_artist": "",
+                    "display_artist_ipi_name_number": "",
+                    "international_standard_name_identifier": "",
+                    "record_label": "",
+                    "isrc_validity": "",
+                    "submitter_recording_identifier": ""
                 },
                 "NRC": {
-
+                    "release_date": "",
+                    "recording_duration": "",
+                    "isrc": "",
+                    "recording_title": "",
+                    "version_title": "",
+                    "display_artist": "",
+                    "display_artist_ipi_name_number": "",
+                    "international_standard_name_identifier": "",
+                    "record_label": "",
+                    "isrc_validity": "",
+                    "submitter_recording_identifier": "",
+                    "language_code": "",
+                    "script_code": ""
+                },
+                "ORN": {
+                    "intended_purpose": "",
+                    "cd_identifier": "",
+                    "cut_number": "",
+                    "library": "",
+                    "production_title": "",
+                    "bltvr": "",
+                    "production_number": "",
+                    "episode_title": "",
+                    "episode_number": "",
+                    "production_year": "",
+                    "avi_key": "",
+                    "avi_society_code": "",
+                    "audio_visual_number": "",
+                    "v_isan": "",
+                    "isan": "",
+                    "episode": "",
+                    "check_digit_1": "",
+                    "version": "",
+                    "check_digit_2": "",
+                    "eidr": "",
+                    "eidr_check_digit": "",
+                    "version_name": ""
+                },
+                "INS": {
+                    "number_of_voices": "",
+                    "standard_instrumentation_type": "",
+                    "instrumentation_description": ""
+                },
+                "IND": {
+                    "instrument_code": "",
+                    "number_of_players": ""
                 }
             },
-            "GRT": {
-                "group_code": "",
-                "transaction_count": "",
-                "record_count": ""
+            "DRW": {
+                "work_title": "",
+                "language_code": "",
+                "submitter_work_number": "",
+                "iswc": "",
+                "retraction_reason_code": ""
             }
         },
-        "TRL": {
-            "group_count": "",
+        "GRT": {
+            "group_code": "",
             "transaction_count": "",
             "record_count": ""
         }
+    },
+    "TRL": {
+        "group_count": "",
+        "transaction_count": "",
+        "record_count": ""
     }
 }
