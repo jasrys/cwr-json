@@ -14,8 +14,20 @@
                 },
                 "submitter_name": {
                     "type": "string"
+                },
+                "properties": {
+                    "WRK": {
+                        "type": "object",
+                        "properties": {
+                            "work_title": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "work_title"
+                        ]
+                    }
                 }
-
             },
             "required": [
                 "submitter_type",
