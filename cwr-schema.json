@@ -1,0 +1,34 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CWR JSON Schema",
+    "description": "JSON Schema for Common Works Registration (CWR)",
+    "type": "object",
+    "properties": {
+        "HDR": {
+            "description": "The header record for a CWR file",
+            "type": "object",
+            "properties": {
+                "submitter_type": {
+                    "type": "string",
+                    "enum": ["PB", "SO", "AA", "WR", "OO"]
+                },
+                "submitter_name": {
+                    "type": "string"
+                }
+
+            },
+            "required": [
+                "submitter_type",
+                "submitter_name"
+            ]
+        },
+        "TRL": {
+            "description": "The trailer record for a CWR file",
+            "type": "object"
+        }
+    },
+    "required": [
+        "HDR",
+        "TRL"
+    ]
+}
