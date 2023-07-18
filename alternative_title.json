@@ -1,0 +1,32 @@
+{
+    "ALT": {
+        "description": "The alternative title or AKA of a work",
+        "type": "object",
+        "minLength": 3,
+        "maxLength": 3,
+        "properties": {
+            "alternative_title": {
+                "description": "The alternative title or AKA of a work",
+                "type": "string",
+                "maxLength": 60
+            },
+            "title_type": {
+                "description": "Indicates the type of alternative title presented on this record. These values reside in the Title Type Table.",
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 2
+            },
+            "language_code": {
+                "description": "The code representing the language that this alternative title has been translated into. A language Code Must be entered if the Title Type is equal to “OL” or “AL”. Values and reference for this field reside in the Language Code Table.",
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 2
+            }
+        },
+        "required": [
+            "alternative_title",
+            "title_type",
+            "language_code"
+        ]
+    }
+}
