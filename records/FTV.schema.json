@@ -5,8 +5,8 @@
     "type": "object",
     "description": "Details of audio-visual productions into which the work has been licensed.",
     "required": [
-        "production_title",
-        "intended_purpose"
+        "intended_purpose",
+        "production_title"
     ],
     "properties": {
         "intended_purpose": {
