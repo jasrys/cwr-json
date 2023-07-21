@@ -1,6 +1,9 @@
 {
-    "$schema": "nwn.json",
+    "$id": "NWN.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "NWN",
     "type": "object",
+    "description": "Lists the writer name if available in a non-Roman alphabet",
     "required": [
         "writer_last_name"
     ],
@@ -8,18 +11,17 @@
         "interested_party_number": {
             "description": "(This isnt required if we structure it within the writer name) Submitter’s unique identifier for this Writer.",
             "type": "string",
-            "maxLength": "11"
+            "maxLength": 11
         },
         "writer_last_name": {
             "description": "The last or single name of this writer.",
             "type": "string",
-            "maxLength": "160",
-            "Required": "Mandatory"
+            "maxLength": 160
         },
         "writer_first_name": {
             "description": "The first name of this writer.",
             "type": "string",
-            "maxLength": "160"
+            "maxLength": 160
         },
         "language_code": {
             "description": "The Language code of the name. Values and reference for this field reside in the Language Code Table.",
