@@ -1,6 +1,9 @@
 {
-    "$schema": "ftv.json",
+    "$id": "FTV.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "FTV",
     "type": "object",
+    "description": "Details of audio-visual productions into which the work has been licensed.",
     "required": [
         "production_title",
         "intended_purpose"
