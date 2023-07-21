@@ -1,0 +1,58 @@
+{
+    "$id": "PUB.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "PUB",
+    "type": "object",
+    "description": "A publisher on a work",
+    "required": [
+        "controlled",
+        "publisher_sequence_number",
+        "unknown_indicator"
+    ],
+    "properties": {
+        "controlled": {
+            "type": "boolean",
+            "description": "Indicates whether the publisher is controlled by the submitter",
+        },
+        "publisher_sequence_number": {
+            "type": "integer",
+            "description": "A sequential number assigned to the original publishers on this work.",
+            "maxLength": 2
+        },
+        "interested_party_number": {
+            "type": "string",
+            "description": "Submitter’s unique identifier for this publisher. This field is required for record type PUB and optional for record type OPU.",
+            "maxLength": 11
+        },
+        "name": {
+            "type": "string",
+            "description": "The name of this publishing company. This field is required for record type SPU and optional for record type OPU.",
+            "maxLength": 45
+        },
+        "unknown_indicator": {
+            "type": "boolean",
+            "description": "Indicates if the name of this publisher is unknown."
+        },
+        "role": {
+            "type": "string",
+            "description": "Code defining this publisher’s role in the publishing of the work. These values reside on the Publisher Role Table. This field is required for record type SPU and optional for record type OPU. Default Value: E",
+            "maxLength": 2
+        },
+        "ipi_name_number": {
+            "type": "string",
+            "description": "The IPI Name Number assigned to this publisher. If the record is of type SPU and followed by an SPT (and hence represents the file submitter), then the IPI Name Number is mandatory.",
+            "maxLength": 11
+        },
+        "ipi_base_number": {
+            "type": "string",
+            "description": "The IPI base number assigned to this publisher",
+            "maxLength": 13
+        },
+        "usa_license_indicator": {
+            "type": "string",
+            "description": "Indicates that rights flow through SESAC/BMI/ASCAP/AMRA in the US",
+            "minLength": 1,
+            "maxLength": 1
+        }
+    }
+}
