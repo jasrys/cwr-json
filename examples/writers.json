@@ -1,32 +1,31 @@
 {
     /* .....*/
     //array with 2 composers example
-    "writers":[
+    "writers": [
         {
-            "ipn":"string",
-            "last_name":"Lastname",
-            "fist_name":"Firstname",
-            "role":"writer",
+            "ipn": "string",
+            "last_name": "Lastname",
+            "fist_name": "Firstname",
+            "role": "writer",
             "ipi_name_number": 123,
             "ipi_base_number": 456,
-            "reversionary":"string",
-            "first_rec_refusal":true,
-            "work_for_hire":true,
-            "usa_society":"string"
+            "reversionary": "string",
+            "first_rec_refusal": true,
+            "work_for_hire": true,
+            "usa_society": "string"
         },
         {
-            "ipn":"string",
-            "last_name":"Lastname",
-            "fist_name":"Firstname",
-            "role":"writer",
+            "ipn": "string",
+            "last_name": "Lastname",
+            "fist_name": "Firstname",
+            "role": "writer",
             "ipi_name_number": 123,
             "ipi_base_number": 456,
-            "reversionary":"string",
-            "first_rec_refusal":true,
-            "work_for_hire":true,
-            "usa_society":"string"
+            "reversionary": "string",
+            "first_rec_refusal": true,
+            "work_for_hire": true,
+            "usa_society": "string"
         }
-
     ]
     /* .....*/
 }

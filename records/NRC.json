@@ -1,9 +1,7 @@
-
-    {
-        "$schema": "nrc.json",
+{
+    "$schema": "nrc.json",
     "type": "object",
-    "required": [
-    ],
+    "required": [],
     "dependantRequired": {
         "isrc": [
             "isrc_validity"

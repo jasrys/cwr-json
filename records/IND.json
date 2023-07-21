@@ -1,6 +1,5 @@
-
-    {
-        "$schema": "ind.json",
+{
+    "$schema": "ind.json",
     "type": "object",
     "required": [
         "instrument_code"

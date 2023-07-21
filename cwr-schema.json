@@ -11,7 +11,13 @@
                 "submitter_type": {
                     "description": "Indicates the nature of the submitter of the file. Values are PB = Publisher, SO = Society, AA = Administrative Agency, WR = Writer, OO = Other",
                     "type": "string",
-                    "enum": ["PB", "SO", "AA", "WR", "OO"]
+                    "enum": [
+                        "PB",
+                        "SO",
+                        "AA",
+                        "WR",
+                        "OO"
+                    ]
                 },
                 "submitter_name": {
                     "description": "The name of the submitter (publisher, society, agency, writer, or other entity)",

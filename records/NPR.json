@@ -1,12 +1,18 @@
-
-    {
-        "$schema": "npr.json",
+{
+    "$schema": "npr.json",
     "type": "object",
-    "required": [
-    ],
+    "required": [],
     "anyOf": [
-        {"required": ["performing_artist_name"]},
-        {"required": ["performance_language"]},
+        {
+            "required": [
+                "performing_artist_name"
+            ]
+        },
+        {
+            "required": [
+                "performance_language"
+            ]
+        },
         {
             "required": [
                 "performance_dialect"

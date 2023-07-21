@@ -1,6 +1,5 @@
-
-    {
-        "$schema": "not.json",
+{
+    "$schema": "not.json",
     "type": "object",
     "required": [
         "title"

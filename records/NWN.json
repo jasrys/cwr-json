@@ -1,6 +1,5 @@
-
-    {
-        "$schema": "nwn.json",
+{
+    "$schema": "nwn.json",
     "type": "object",
     "required": [
         "writer_last_name"

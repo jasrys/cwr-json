@@ -1,6 +1,5 @@
-
-    {
-        "$schema": "ins.json",
+{
+    "$schema": "ins.json",
     "type": "object",
     "anyOf": [
         [
@@ -14,17 +13,17 @@
         ]
     ],
     "number_of_voices": {
-            "description": "Indicates the number of independent parts included in this work.",
+        "description": "Indicates the number of independent parts included in this work.",
         "type": "Number",
-            "maximum": "999"
+        "maximum": "999"
     },
-        "Standard_Instrumentation_Type": {
-            "description": "Describes instrumentation if standard instrumentation is used on this work. Note that this field is required if IND records are not entered and if Instrumentation Description is blank. These values reside in the Standard Instrumentation Type Table.",
+    "Standard_Instrumentation_Type": {
+        "description": "Describes instrumentation if standard instrumentation is used on this work. Note that this field is required if IND records are not entered and if Instrumentation Description is blank. These values reside in the Standard Instrumentation Type Table.",
         "$ref": "/schemas/Instrument_type"
     },
-        "Instrumentation_Description": {
-            "description": "Describes instrumentation if non-standard instrumentation is used on this work. Note that this field is required if IND records are not entered and if Standard Instrumentation Type is blank.",
+    "Instrumentation_Description": {
+        "description": "Describes instrumentation if non-standard instrumentation is used on this work. Note that this field is required if IND records are not entered and if Standard Instrumentation Type is blank.",
         "type": "string",
-            "maxLength": "50"
+        "maxLength": "50"
     }
-    }
+}

@@ -1,11 +1,11 @@
-
-    {
-        "$schema": "rec.json",
+{
+    "$schema": "rec.json",
     "type": "object",
-    "required": [
-    ],
+    "required": [],
     "dependantRequired": {
-        "isrc": ["isrc_validity"]
+        "isrc": [
+            "isrc_validity"
+        ]
     },
     "properties": {
         "release_date": {
@@ -60,6 +60,7 @@
         "Submitter_Recording_Identifier": {
             "description": "The submitter’s unique identifier for this recording.",
             "type": "String",
-            "maxLength": "14"}
+            "maxLength": "14"
+        }
     }
 }

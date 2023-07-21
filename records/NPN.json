@@ -1,10 +1,10 @@
-
-    {
-        "$schema": "npn.json",
+{
+    "$schema": "npn.json",
     "type": "object",
     "required": [
         "interested_party_number",
-    "publisher_name"],
+        "publisher_name"
+    ],
     "properties": {
         "interested_party_number": {
             "description": "(not needed if we structure this inside the publsher record) Submitter’s unique identifier for this publisher.",

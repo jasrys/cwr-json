@@ -1,63 +1,63 @@
 {
-  "$schema": "writers_publisher",
-  "type": "object",
-  "properties": {
-    "writers_publisher": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "writers_publisher": {
-              "type": "array",
-              "description":"Set Record Type = PWR (Publisher for Writer).  See Record Prefix in Properties of Components.",
-              "items": [
+    "$schema": "writers_publisher",
+    "type": "object",
+    "properties": {
+        "writers_publisher": {
+            "type": "array",
+            "items": [
                 {
-                  "type": "string"
-                },
-                {
-                  "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "writers_publisher": {
+                            "type": "array",
+                            "description": "Set Record Type = PWR (Publisher for Writer).  See Record Prefix in Properties of Components.",
+                            "items": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "sequence_number": {
+                            "type": "integer",
+                            "description": "Reference to publisher chain this link relates to. This allows the specific original publisher/income participant entry for this relationship to be identified. "
+                        },
+                        "publisher_ipnumber": {
+                            "type": "string",
+                            "description": "The publisher interested party number pointing back to the SPU/OPU record for the original publisher/income participant representing this writer."
+                        },
+                        "writer_ipnumber": {
+                            "type": "string",
+                            "description": "The writer interested party number pointing back to the SWR/OWR record in an explicit link."
+                        },
+                        "submitter_agreement": {
+                            "type": "string",
+                            "description": "The unique number assigned to this agreement by the submitter."
+                        },
+                        "recipient": {
+                            "type": "string",
+                            "description": "Recipient Code relating to the Recipient Agreement Number.  These values reside on the Transmitter Code Table."
+                        },
+                        "recipient_agreement": {
+                            "type": "string",
+                            "description": "The agreement number as assigned by the Recipient of the transaction."
+                        },
+                        "agreement_type": {
+                            "type": "string",
+                            "description": "Code defining the category of agreement. The values reside in the Agreement Type Table."
+                        }
+                    },
+                    "required": [
+                        "writers_publisher",
+                        "sequence_number"
+                    ]
                 }
-              ]
-            },
-            "sequence_number": {
-              "type": "integer",
-              "description":"Reference to publisher chain this link relates to. This allows the specific original publisher/income participant entry for this relationship to be identified. "
-            },
-            "publisher_ipnumber": {
-              "type": "string",
-              "description":"The publisher interested party number pointing back to the SPU/OPU record for the original publisher/income participant representing this writer."
-            },
-            "writer_ipnumber": {
-              "type": "string",
-              "description":"The writer interested party number pointing back to the SWR/OWR record in an explicit link."
-            },
-            "submitter_agreement": {
-              "type": "string",
-              "description":"The unique number assigned to this agreement by the submitter."
-            },
-            "recipient": {
-              "type": "string",
-              "description":"Recipient Code relating to the Recipient Agreement Number.  These values reside on the Transmitter Code Table."
-            },
-            "recipient_agreement": {
-              "type": "string",
-              "description":"The agreement number as assigned by the Recipient of the transaction."
-            },
-            "agreement_type": {
-              "type": "string",
-              "description":"Code defining the category of agreement. The values reside in the Agreement Type Table."
-            }
-          },
-          "required": [
-            "writers_publisher",
-            "sequence_number"
-          ]
+            ]
         }
-      ]
-    }
-  },
-  "required": [
-    "writers_publisher"
-  ]
+    },
+    "required": [
+        "writers_publisher"
+    ]
 }

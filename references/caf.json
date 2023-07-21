@@ -21,7 +21,11 @@
             "type": "object",
             "title": "CAF File Header Record",
             "description": "File header information for a CAF Transaction.",
-            "allOf": [{ "$ref": "#/definitions/file_header_record" }],
+            "allOf": [
+                {
+                    "$ref": "#/definitions/file_header_record"
+                }
+            ],
             "required": [
                 "submitter_type",
                 "submitter_code",
@@ -40,7 +44,11 @@
                 "$id": "#/properties/cafs/items",
                 "type": "object",
                 "title": "CAF header information",
-                "allOf": [{ "$ref": "#/definitions/caf_header_record" }],
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/caf_header_record"
+                    }
+                ],
                 "required": [
                     "transaction_type",
                     "submitter_agreement_number",
@@ -52,7 +60,11 @@
                         "type": "object",
                         "title": "Core Agreement",
                         "description": "The Core Agreement record contains information specific to the agreement and occurring at the agreement level. ",
-                        "allOf": [{ "$ref": "#/definitions/core_agreement" }],
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/core_agreement"
+                            }
+                        ],
                         "required": [
                             "type_of_agreement",
                             "bulk_transfer_of_works",
@@ -71,7 +83,11 @@
                                     "$id": "#/properties/trms/items",
                                     "type": "object",
                                     "title": "The Items Schema",
-                                    "allOf": [{ "$ref": "#/definitions/agreement_term" }],
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/agreement_term"
+                                        }
+                                    ],
                                     "required": [
                                         "start_date",
                                         "prior_royalties",
@@ -88,7 +104,11 @@
                                             "items": {
                                                 "$id": "#/properties/ties/items",
                                                 "type": "object",
-                                                "allOf": [{ "$ref": "#/definitions/territory_inclusion_exclusion" }],
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/definitions/territory_inclusion_exclusion"
+                                                    }
+                                                ],
                                                 "required": [
                                                     "tisn",
                                                     "include_exclude"
@@ -104,7 +124,11 @@
                                                 "$id": "#/properties/shrs/items",
                                                 "type": "object",
                                                 "title": "The Items Schema",
-                                                "allOf": [{ "$ref": "#/definitions/shares" }],
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/definitions/shares"
+                                                    }
+                                                ],
                                                 "required": [
                                                     "creator_share_retained",
                                                     "publisher_share_retained",
@@ -121,7 +145,11 @@
                                                         "items": {
                                                             "type": "object",
                                                             "$id": "#/properties/sies/items",
-                                                            "allOf": [{ "$ref": "#/definitions/territory_inclusion_exclusion" }],
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/territory_inclusion_exclusion"
+                                                                }
+                                                            ],
                                                             "required": [
                                                                 "tisn",
                                                                 "include_exclude"
@@ -137,7 +165,11 @@
                                                             "$id": "#/properties/uies/items",
                                                             "type": "object",
                                                             "title": "The Items Schema",
-                                                            "allOf": [{ "$ref": "#/definitions/usage_include_exclude" }],
+                                                            "allOf": [
+                                                                {
+                                                                    "$ref": "#/definitions/usage_include_exclude"
+                                                                }
+                                                            ],
                                                             "required": [
                                                                 "include_exclude",
                                                                 "usage_type"
@@ -155,7 +187,11 @@
                                 "type": "object",
                                 "title": "Assignor",
                                 "description": "The Assignor (ASR) record contains information identifying the party to the agreement which is passing collection rights to the Assignee (as identified in the ASE record).",
-                                "allOf": [{ "$ref": "#/definitions/assignor" }],
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/assignor"
+                                    }
+                                ],
                                 "required": [
                                     "person",
                                     "name"
@@ -166,7 +202,11 @@
                                 "type": "object",
                                 "title": "Assignee",
                                 "description": "The Assignee (ASE) record contains information identifying the party to the agreement which is granted collection rights by the Assignor (as identified in the ASR record).",
-                                "allOf": [{ "$ref": "#/definitions/assignee" }],
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/assignee"
+                                    }
+                                ],
                                 "required": [
                                     "name"
                                 ]
@@ -175,7 +215,11 @@
                                 "$id": "#/properties/lib",
                                 "type": "object",
                                 "title": "Library / Production Music",
-                                "allOf": [{ "$ref": "#/definitions/library_production_music" }],
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/library_production_music"
+                                    }
+                                ],
                                 "required": [
                                     "library_music"
                                 ]
@@ -190,7 +234,11 @@
                                     "type": "object",
                                     "title": "Work Details",
                                     "description": "The Work Details (WRK) record contains details of works which are subject to the agreement being described, such details being sufficient to identify the works, but not details which specify work level collection shares, chain of copyright etc.. which are covered by the CWR format.",
-                                    "allOf": [{ "$ref": "#/definitions/work_details" }],
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/work_details"
+                                        }
+                                    ],
                                     "required": [
                                         "title",
                                         "territories",
@@ -207,7 +255,11 @@
                                                 "type": "object",
                                                 "title": "Work Territory Include / Exclude",
                                                 "description": "The Work Territory Include / Exclude (WTR) record contains information defining the territories covered by a given WRK record, if given.",
-                                                "allOf": [{ "$ref": "#/definitions/work_territory_inclusion_exclusion" }],
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/definitions/work_territory_inclusion_exclusion"
+                                                    }
+                                                ],
                                                 "required": [
                                                     "include_exclude",
                                                     "tisn",
@@ -225,7 +277,11 @@
                                                 "$id": "#/properties/rwns/items",
                                                 "type": "object",
                                                 "title": "Recipient Work Number (RWN) item",
-                                                "allOf": [{ "$ref": "#/definitions/recipient_work_number" }],
+                                                "allOf": [
+                                                    {
+                                                        "$ref": "#/definitions/recipient_work_number"
+                                                    }
+                                                ],
                                                 "required": [
                                                     "code",
                                                     "identifier"
@@ -244,7 +300,11 @@
                                     "$id": "#/properties/xrf/items",
                                     "type": "object",
                                     "title": "The Items Schema",
-                                    "allOf": [{ "$ref": "#/definitions/related_agreements_identifiers" }],
+                                    "allOf": [
+                                        {
+                                            "$ref": "#/definitions/related_agreements_identifiers"
+                                        }
+                                    ],
                                     "required": [
                                         "transmitter_code",
                                         "transmitter_agreement_id"
@@ -256,7 +316,11 @@
                                 "type": "object",
                                 "title": "Termination",
                                 "description": "The Termination (EXP) record contains information relating to the end of rights to collect for a right type and describes any retention or collection period which applies.",
-                                "allOf": [{ "$ref": "#/definitions/termination" }],
+                                "allOf": [
+                                    {
+                                        "$ref": "#/definitions/termination"
+                                    }
+                                ],
                                 "required": [
                                     "termination_date",
                                     "request_terminated_works_list",
@@ -273,7 +337,11 @@
                                             "$id": "#/properties/tixs/items",
                                             "title": "Territory Include / Exclude for Termination item",
                                             "type": "object",
-                                            "allOf": [{ "$ref": "#/definitions/territory_inclusion_exclusion" }],
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/territory_inclusion_exclusion"
+                                                }
+                                            ],
                                             "required": [
                                                 "tisn",
                                                 "include_exclude"
@@ -290,7 +358,11 @@
                                             "$id": "#/properties/rwks/items",
                                             "type": "object",
                                             "title": "The Items Schema",
-                                            "allOf": [{ "$ref": "#/definitions/retained_works_detail" }],
+                                            "allOf": [
+                                                {
+                                                    "$ref": "#/definitions/retained_works_detail"
+                                                }
+                                            ],
                                             "required": [
                                                 "title",
                                                 "use_default_retention"
@@ -305,7 +377,11 @@
                                                         "$id": "#/properties/rwts/items",
                                                         "type": "object",
                                                         "title": "The Items Schema",
-                                                        "anyOf": [{ "$ref": "#/definitions/work_territory_inclusion_exclusion" }],
+                                                        "anyOf": [
+                                                            {
+                                                                "$ref": "#/definitions/work_territory_inclusion_exclusion"
+                                                            }
+                                                        ],
                                                         "required": [
                                                             "include_exclude",
                                                             "tisn",
@@ -323,7 +399,11 @@
                                                         "$id": "#/properties/rwns/items",
                                                         "type": "object",
                                                         "title": "Recipient Work Number item",
-                                                        "allOf": [{ "$ref": "#/definitions/recipient_work_number" }],
+                                                        "allOf": [
+                                                            {
+                                                                "$ref": "#/definitions/recipient_work_number"
+                                                            }
+                                                        ],
                                                         "required": [
                                                             "code",
                                                             "identifier"
@@ -358,7 +438,11 @@
                         "type": "object",
                         "title": "Acknowlegment CAF Header Record",
                         "description": "Basic details of the agreement and recipient processing status.",
-                        "allOf": [{ "$ref": "#/definitions/caf_header_record" }],
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/caf_header_record"
+                            }
+                        ],
                         "required": [
                             "transaction_type",
                             "submitter_agreement_number",
@@ -374,7 +458,11 @@
                             "$id": "#/definitions/xrf_related_agreements_identifiers/items",
                             "type": "object",
                             "title": "The Items Schema",
-                            "allOf": [{ "$ref": "#/definitions/related_agreements_identifiers" }],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/related_agreements_identifiers"
+                                }
+                            ],
                             "required": [
                                 "transmitter_code",
                                 "transmitter_agreement_id"
@@ -390,7 +478,11 @@
                             "$id": "#/definitions/msg_message/items",
                             "type": "object",
                             "title": "The Items Schema",
-                            "allOf": [{ "$ref": "#/definitions/message" }],
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/message"
+                                }
+                            ],
                             "required": [
                                 "message_type",
                                 "record_type",
@@ -404,7 +496,6 @@
             }
         }
     },
-
     /***************************************
     CAF records / objects definition
     ****************************************/
@@ -461,7 +552,9 @@
                     "description": "To be used if this file contains data in a character set other than ASCII.",
                     "type": "string",
                     "default": "",
-                    "examples": ["Traditional"],
+                    "examples": [
+                        "Traditional"
+                    ],
                     "pattern": "^(.*)$"
                 },
                 "filename": {
@@ -470,7 +563,9 @@
                     "title": "Filename",
                     "description": "The full filename of the CAF file.",
                     "default": "",
-                    "examples": ["CAF170037SA_058_V2-2-0.SUB"]
+                    "examples": [
+                        "CAF170037SA_058_V2-2-0.SUB"
+                    ]
                 },
                 "software_package": {
                     "$id": "#/definitions/caf_header_record/properties/software_package",
@@ -478,14 +573,18 @@
                     "title": "Software package",
                     "description": "Name of the software package from which the file originated",
                     "default": "",
-                    "examples": ["Vistex software"]
+                    "examples": [
+                        "Vistex software"
+                    ]
                 },
                 "software_package_version": {
                     "$id": "#/definitions/caf_header_record/properties/software_package_version",
                     "type": "string",
                     "title": "Software package version",
                     "default": "",
-                    "examples": ["2.01"]
+                    "examples": [
+                        "2.01"
+                    ]
                 }
             }
         },
@@ -507,7 +606,9 @@
                     "title": "Submitter Agreement Number",
                     "description": "The Submitter’s unique identifier for the agreement or deal.",
                     "default": "0",
-                    "examples": ["123"]
+                    "examples": [
+                        "123"
+                    ]
                 },
                 "agreement_signature_date": {
                     "$id": "#/properties/caf/properties/agreement_signature_date",
@@ -850,8 +951,12 @@
             "title": "Territory Include / Exclude for Term",
             "description": "The Territory Include / Exclude for Term, Share and Termination. Contains information defining the territories covered by a given Term, Share and Termination. ",
             "properties": {
-                "tisn": { "$ref": "#/definitions/common_properties/properties/tisn" },
-                "include_exclude": { "$ref": "#/definitions/common_properties/properties/include_exclude" }
+                "tisn": {
+                    "$ref": "#/definitions/common_properties/properties/tisn"
+                },
+                "include_exclude": {
+                    "$ref": "#/definitions/common_properties/properties/include_exclude"
+                }
             }
         },
         "work_territory_inclusion_exclusion": {
@@ -860,10 +965,18 @@
             "title": "Work Territory Include / Exclude",
             "description": "The Work Territory Include / Exclude (WTR) record contains information defining the territories covered by a given WRK record, if given.",
             "properties": {
-                "tisn": { "$ref": "#/definitions/common_properties/properties/tisn" },
-                "include_exclude": { "$ref": "#/definitions/common_properties/properties/include_exclude" },
-                "exclusion_until": { "$ref": "#/definitions/common_properties/properties/exclusion_until" },
-                "exclusion_until_date": { "$ref": "#/definitions/common_properties/properties/exclusion_until_date" }
+                "tisn": {
+                    "$ref": "#/definitions/common_properties/properties/tisn"
+                },
+                "include_exclude": {
+                    "$ref": "#/definitions/common_properties/properties/include_exclude"
+                },
+                "exclusion_until": {
+                    "$ref": "#/definitions/common_properties/properties/exclusion_until"
+                },
+                "exclusion_until_date": {
+                    "$ref": "#/definitions/common_properties/properties/exclusion_until_date"
+                }
             }
         },
         "usage_include_exclude": {
@@ -1157,7 +1270,9 @@
                     "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/transmitter_codes",
                     "title": "Recipient Code",
                     "description": "Tansmitter code assigned to Recipient which generated the Recipient Identifier.",
-                    "examples": ["UN"]
+                    "examples": [
+                        "UN"
+                    ]
                 },
                 "identifier": {
                     "$id": "#/definitions/recipient_work_number/properties/identifier",
@@ -1165,7 +1280,9 @@
                     "title": "Recipient Identifier",
                     "description": "An identifier that relates to this work which was issued by the Recipient identified in Recipient Code.",
                     "default": "",
-                    "examples": ["UNI-12345"],
+                    "examples": [
+                        "UNI-12345"
+                    ],
                     "pattern": "^(.*)$"
                 }
             }
@@ -1179,7 +1296,11 @@
                 "message_type": {
                     "$id": "#/definitions/message/properties/message_type",
                     "type": "string",
-                    "anyOf": [{ "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_message_level_codes" }],
+                    "anyOf": [
+                        {
+                            "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_message_level_codes"
+                        }
+                    ],
                     "title": "The message_type Schema",
                     "description": "",
                     "default": "",
@@ -1191,7 +1312,11 @@
                 "record_type": {
                     "$id": "#/definitions/message/properties/record_type",
                     "type": "string",
-                    "anyOf": [{ "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_transaction_records_codes" }],
+                    "anyOf": [
+                        {
+                            "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_transaction_records_codes"
+                        }
+                    ],
                     "title": "The message_type Schema",
                     "description": "List of record type",
                     "default": "",
@@ -1203,7 +1328,11 @@
                 "message_level": {
                     "$id": "#/definitions/message/properties/message_level",
                     "type": "string",
-                    "anyOf": [{ "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_message_level_codes" }],
+                    "anyOf": [
+                        {
+                            "$ref": "spf-lookup-data-types-3.1.5.json#/definitions/lookups/message_message_level_codes"
+                        }
+                    ],
                     "title": "Message level Schema",
                     "description": "",
                     "default": "",

@@ -1,6 +1,5 @@
-
-    {
-        "$schema": "now.json",
+{
+    "$schema": "now.json",
     "type": "object",
     "required": [
         "writer_name"

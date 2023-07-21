@@ -1,6 +1,5 @@
-
-    {
-        "$schema": "nrt.json",
+{
+    "$schema": "nrt.json",
     "type": "object",
     "required": [
         "title",
