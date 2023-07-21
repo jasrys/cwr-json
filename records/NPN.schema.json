@@ -1,6 +1,9 @@
 {
-    "$schema": "npn.json",
+    "$id": "NPN.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "NPN",
     "type": "object",
+    "description": "Lists the publisher name if available in a non-Roman alphabet",
     "required": [
         "interested_party_number",
         "publisher_name"
@@ -9,12 +12,12 @@
         "interested_party_number": {
             "description": "(not needed if we structure this inside the publsher record) Submitter’s unique identifier for this publisher.",
             "type": "number",
-            "maximum": "99999999999"
+            "maximum": 99999999999
         },
         "publisher_name": {
             "description": "The name of this publishing company in non-roman alphabet.",
             "type": "string",
-            "maxLength": "480"
+            "maxLength": 480
         },
         "language_code": {
             "description": "The Language code of the name. Values and reference for this field reside in the Language Code Table.",
