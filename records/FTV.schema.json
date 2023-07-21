@@ -50,8 +50,7 @@
         "v-isan": {
             "description": "V-ISAN unique identifier for audio-visual production in which this work is first used",
             "type": "string",
-            "maxLength": "26",
-            "pattern": ""
+            "maxLength": 26
         },
         "eidr": {
             "description": "Combined Root & check number",
