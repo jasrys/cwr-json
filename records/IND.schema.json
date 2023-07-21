@@ -1,5 +1,7 @@
 {
-    "$schema": "ind.json",
+    "$id": "IND.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "IND",
     "type": "object",
     "required": [
         "instrument_code"
@@ -8,13 +10,13 @@
         "instrument_code": {
             "description": "Lookup Table: Instrument Code Table. Indicates the use of a specific instrument in this version of instrumentation.",
             "type": "string",
-            "minLength": "3",
-            "maxLength": "3"
+            "minLength": 3,
+            "maxLength": 3
         },
         "number_of_players": {
             "description": "Indicates the number of players for the above instrument",
             "type": "Number",
-            "maximum": "999"
+            "maximum": 999
         }
     }
 }
