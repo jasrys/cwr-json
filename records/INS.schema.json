@@ -1,6 +1,9 @@
 {
-    "$schema": "ins.json",
+    "$id": "INS.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "INS",
     "type": "object",
+    "description": "Summary of the standard and non-standard instrumentation for serious works.",
     "anyOf": [
         [
             "$ref: schema/IND"
@@ -14,8 +17,8 @@
     ],
     "number_of_voices": {
         "description": "Indicates the number of independent parts included in this work.",
-        "type": "Number",
-        "maximum": "999"
+        "type": "number",
+        "maximum": 999
     },
     "standard_instrumentation_type": {
         "description": "Describes instrumentation if standard instrumentation is used on this work. Note that this field is required if IND records are not entered and if Instrumentation Description is blank. These values reside in the Standard Instrumentation Type Table.",
@@ -24,6 +27,6 @@
     "instrumentation_description": {
         "description": "Describes instrumentation if non-standard instrumentation is used on this work. Note that this field is required if IND records are not entered and if Standard Instrumentation Type is blank.",
         "type": "string",
-        "maxLength": "50"
+        "maxLength": 50
     }
 }
