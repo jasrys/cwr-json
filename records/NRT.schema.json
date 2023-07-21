@@ -18,9 +18,7 @@
             "description": "Indicates the type of title presented on this record (original, alternative etc.). These values reside in the Title Type Table.",
             "publisher_name": {
                 "description": "The name of this publishing company in non-roman alphabet.",
-                "Size": "480",
-                "type": "string",
-                "Required": "Mandatory"
+                "type": "string"
             },
             "type": "string",
             "maxLength": 2
