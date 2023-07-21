@@ -9,12 +9,6 @@
     "required": [
         "fileHeader"
     ],
-    /***************************************
-     CAF Skeleton / hierarchy properties
-
-        CAF Transactions: HDR + CAFs
-        CAF Acknowledgment transaction: HDR + ACKs
-    ****************************************/
     "properties": {
         "fileHeader": {
             "$id": "#/properties/ack",
@@ -496,9 +490,6 @@
             }
         }
     },
-    /***************************************
-    CAF records / objects definition
-    ****************************************/
     "definitions": {
         "file_header_record": {
             "$id": "#/definitions/caf_header_record",

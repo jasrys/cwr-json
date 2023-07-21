@@ -1,85 +1,66 @@
-/*schema*/
 {
     "$schema": "witers.json",
     "type": "object",
     "properties": {
-        "writers": {
-            "type": "array",
-            "items": [
-                {
-                    "type": "object",
-                    "properties": {
-                        "ipn": {
-                            "type": "string",
-                            "desctiption": "Submitter’s unique identifier for this Writer. This field is required for both record type SWR and OWR."
-                        },
-                        "last_name": {
-                            "type": "string",
-                            "desctiption": "The last name of this writer. Note that if the submitter does not have the ability to split first and last names, the entire name should be entered in this field in the format “Last Name, First Name” including the comma after the last name."
-                        },
-                        "fist_name": {
-                            "type": "string",
-                            "description": "The first name of this writer along with all qualifying and middle names."
-                        },
-                        "role": {
-                            "type": "string",
-                            "description": "Code defining the role the writer played in the composition of the work. These values reside in the Writer Role Table.",
-                            "enum": [
-                                "Adaptor",
-                                "Arranger",
-                                "Author, Writer",
-                                "Author of Lyrics",
-                                "Composer",
-                                "Writer",
-                                "Composer/Author",
-                                "Sub Arranger",
-                                "Sub Author",
-                                "Translator",
-                                "Income Participant"
-                            ]
-                        },
-                        "ipi_name_number": {
-                            "type": "integer",
-                            "description": "The IPI Name Number assigned to this writer."
-                        },
-                        "ipi_base_number": {
-                            "type": "integer",
-                            "description": "The IPI base number assigned to this writer. These values reside in the IPI database."
-                        },
-                        "reversionary": {
-                            "type": "string",
-                            "description": "Indicates writer involved in the claim.  Note that this flag only applies to societies that recognize reversionary rights (for example, SOCAN)."
-                        },
-                        "first_rec_refusal": {
-                            "type": "boolean",
-                            "description": "Indicates whether the submitter has refused to give authority for the first recording. Note that this field is mandatory for registrations with the UK societies."
-                        },
-                        "work_for_hire": {
-                            "type": "boolean",
-                            "description": "Indicates whether or not this writer’s contribution was written for hire."
-                        },
-                        "usa_society": {
-                            "type": "string",
-                            "description": "Indicates that rights flow through SESAC/BMI/ASCAP/AMRA in the US. These values reside in the USA License Indicator Table.",
-                            "enum": [
-                                "ASCAP",
-                                "BMI",
-                                "SESAC",
-                                "AMRA",
-                                "GMR"
-                            ]
-                        }
-                    },
-                    "required": [
-                        "ipn",
-                        "last_name",
-                        "role"
-                    ]
-                }
+      "writers": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "ipn": {
+                "type": "string",
+                "desctiption":"Submitter’s unique identifier for this Writer. This field is required for both record type SWR and OWR."
+              },
+              "last_name": {
+                "type": "string",
+                "desctiption":"The last name of this writer. Note that if the submitter does not have the ability to split first and last names, the entire name should be entered in this field in the format “Last Name, First Name” including the comma after the last name."
+              },
+              "fist_name": {
+                "type": "string",
+                "description":"The first name of this writer along with all qualifying and middle names."
+              },
+              "role": {
+                "type": "string",
+                "description":"Code defining the role the writer played in the composition of the work. These values reside in the Writer Role Table.",
+                "enum":["Adaptor","Arranger","Author, Writer","Author of Lyrics","Composer","Writer","Composer/Author","Sub Arranger","Sub Author","Translator","Income Participant"]
+              },
+              "ipi_name_number": {
+                "type": "integer",
+                "description":"The IPI Name Number assigned to this writer."
+              },
+              "ipi_base_number": {
+                "type": "integer",
+                "description":"The IPI base number assigned to this writer. These values reside in the IPI database."
+              },
+              "reversionary": {
+                "type": "string",
+                "description":"Indicates writer involved in the claim.  Note that this flag only applies to societies that recognize reversionary rights (for example, SOCAN)."
+              },
+              "first_rec_refusal": {
+                "type": "boolean",
+                "description":"Indicates whether the submitter has refused to give authority for the first recording. Note that this field is mandatory for registrations with the UK societies."
+              },
+              "work_for_hire": {
+                "type": "boolean",
+                "description":"Indicates whether or not this writer’s contribution was written for hire."
+              },
+              "usa_society": {
+                "type": "string",
+                "description":"Indicates that rights flow through SESAC/BMI/ASCAP/AMRA in the US. These values reside in the USA License Indicator Table.",
+                "enum":["ASCAP","BMI","SESAC","AMRA","GMR"]
+              }
+            },
+            "required": [
+              "ipn",
+              "last_name",
+              "role"
             ]
-        }
+          }
+        ]
+      }
     },
     "required": [
-        "writers"
+      "writers"
     ]
-}
+  }

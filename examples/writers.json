@@ -1,6 +1,4 @@
 {
-    /* .....*/
-    //array with 2 composers example
     "writers": [
         {
             "ipn": "string",
@@ -27,5 +25,4 @@
             "usa_society": "string"
         }
     ]
-    /* .....*/
 }
