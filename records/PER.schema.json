@@ -1,6 +1,9 @@
 {
-    "$schema": "per.json",
+    "$id": "PER.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "PER",
     "type": "object",
+    "description": "Lists any known live performers of this work.",
     "required": [
         "performing_artist_name"
     ],
@@ -8,22 +11,22 @@
         "performing_artist_name": {
             "description": "Last name of a person or full name of a group that has performed the work in public. Note that if the performer is known by a single name, it should be entered in this field.",
             "type": "string",
-            "maxLength": "45"
+            "maxLength": 45
         },
         "performing_artist_first_name": {
             "description": "First name associated with the performing artist identified in the previous field.",
             "type": "string",
-            "maxLength": "30"
+            "maxLength": 30
         },
         "performing_artist_ipi_name_number": {
             "description": "The IPI Name Number corresponding to this performing artist. Values reside in the IPI database.",
             "type": "string",
-            "maxLength": "11"
+            "maxLength": 11
         },
         "isni": {
             "description": "The ISNI assigned to the performing artist. Values reside in the INSI-IA Database",
             "type": "string",
-            "maxLength": "16"
+            "maxLength": 16
         },
         "performance_language": {
             "description": "The language used in the performance. Values and reference for this field reside in the Language Code Table.",
