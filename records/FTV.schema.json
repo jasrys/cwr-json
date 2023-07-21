@@ -33,7 +33,7 @@
         "episode_number": {
             "description": "Number assigned to the episode by the producer.",
             "type": "string",
-            "maxLength": "20"
+            "maxLength": 20
         },
         "year_of_production": {
             "description": "The year in which the production of the film or episode was completed.",
