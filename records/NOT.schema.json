@@ -1,6 +1,9 @@
 {
-    "$schema": "not.json",
+    "$id": "NOT.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "NOT",
     "type": "object",
+    "description": "Lists the title of the work of which this work is an extract, in non-Roman alphabet.",
     "required": [
         "title"
     ],
@@ -8,7 +11,7 @@
         "title": {
             "description": "The title in non-Roman alphabet.",
             "type": "string",
-            "maxLength": "640"
+            "maxLength": 640
         },
         "language_code": {
             "description": "The Language code of the title. Values and reference for this field reside in the Language Code Table.",
