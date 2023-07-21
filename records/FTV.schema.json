@@ -45,8 +45,7 @@
             "description": "Combined \"owning\" Society code & Audio-Viusal Number",
             "type": "string",
             "maxLength": 19,
-            "minLength": 19,
-            "pattern": ""
+            "minLength": 19
         },
         "v-isan": {
             "description": "V-ISAN unique identifier for audio-visual production in which this work is first used",
