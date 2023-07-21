@@ -5,7 +5,7 @@
         "writer_last_name"
     ],
     "properties": {
-        "Interested_Party_Number": {
+        "interested_party_number": {
             "description": "(This isnt required if we structure it within the writer name) Submitter’s unique identifier for this Writer.",
             "type": "string",
             "maxLength": "11"

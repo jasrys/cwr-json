@@ -17,11 +17,11 @@
         "type": "Number",
         "maximum": "999"
     },
-    "Standard_Instrumentation_Type": {
+    "standard_instrumentation_type": {
         "description": "Describes instrumentation if standard instrumentation is used on this work. Note that this field is required if IND records are not entered and if Instrumentation Description is blank. These values reside in the Standard Instrumentation Type Table.",
         "$ref": "/schemas/Instrument_type"
     },
-    "Instrumentation_Description": {
+    "instrumentation_description": {
         "description": "Describes instrumentation if non-standard instrumentation is used on this work. Note that this field is required if IND records are not entered and if Standard Instrumentation Type is blank.",
         "type": "string",
         "maxLength": "50"

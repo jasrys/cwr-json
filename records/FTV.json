@@ -22,42 +22,42 @@
             "type": "String",
             "maxLength": "12"
         },
-        "Episode_Title": {
+        "episode_title": {
             "description": "Title of the episode from which this work originated.",
             "type": "string",
             "maxLength": "60"
         },
-        "Episode_Number": {
+        "episode_number": {
             "description": "Number assigned to the episode by the producer.",
             "type": "string",
             "maxLength": "20"
         },
-        "Year_of_Production": {
+        "year_of_production": {
             "description": "The year in which the production of the film or episode was completed.",
             "type": "number",
             "minimum": 0,
             "maximum": 9999
         },
-        "AVI_Key": {
+        "avi_key": {
             "description": "Combined \"owning\" Society code & Audio-Viusal Number",
             "type": "string",
             "maxLength": 19,
             "minLength": 19,
             "pattern": ""
         },
-        "V-ISAN": {
+        "v-isan": {
             "description": "V-ISAN unique identifier for audio-visual production in which this work is first used",
             "type": "string",
             "maxLength": "26",
             "pattern": ""
         },
-        "EIDR": {
+        "eidr": {
             "description": "Combined Root & check number",
             "type": "string",
             "maxLength": "21",
             "pattern": ""
         },
-        "Version_Name": {
+        "version_name": {
             "description": "The title or description of the particular version to which the specific ISAN or EIDR relates.",
             "type": "string",
             "maxLength": "40"

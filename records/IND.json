@@ -11,7 +11,7 @@
             "minLength": "3",
             "maxLength": "3"
         },
-        "Number_of_Players": {
+        "number_of_players": {
             "description": "Indicates the number of players for the above instrument",
             "type": "Number",
             "maximum": "999"

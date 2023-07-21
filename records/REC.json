@@ -57,7 +57,7 @@
             "description": "If an ISRC is supplied, Indicates that the validity of the ISRC. These values can be found in the ISRC Validity Indicator Table.",
             "type": "boolean"
         },
-        "Submitter_Recording_Identifier": {
+        "submitter_recording_identifier": {
             "description": "The submitter’s unique identifier for this recording.",
             "type": "String",
             "maxLength": "14"
