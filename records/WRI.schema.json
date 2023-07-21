@@ -1,6 +1,10 @@
 {
-    "$schema": "witers.json",
+    "$id": "WRI.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "WRI",
     "type": "object",
+    "description": "A writer of the work",
+    "required": [],
     "properties": {
       "writers": {
         "type": "array",
@@ -60,7 +64,4 @@
         ]
       }
     },
-    "required": [
-      "writers"
-    ]
-  }
+}
