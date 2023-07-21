@@ -1,0 +1,19 @@
+{
+    "writer_territory":[
+        {
+            "witer_territory":["territory one","territory 2"],
+            "sequence_number":12,
+            "ipnumber":"string",
+            "pr_share":12,
+            "mr_share":12,
+            "sr_share":12,
+            "included":true,
+            "territory":"string",
+            "pr_affiliation":"string",
+            "mr_affiliation":"string",
+            "sr_affiliation":"string",
+            "recipient":"string"
+        }
+
+    ]
+}
