@@ -1,82 +1,85 @@
 {
-  "$schema": "writer_territory",
-  "type": "object",
-  "properties": {
-    "writer_territory": {
-      "type": "array",
-      "items": [
-        {
-          "type": "object",
-          "properties": {
-            "witer_territory": {
-              "type": "array",
-              "description":"Set Record Type = SWT (writer Territory of Control) or OWT (other writer collection).  See Record Prefix in Properties of Components.",
-              "items": [
+    "$id": "WRT.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "WRT",
+    "type": "object",
+    "description": "The territoy for a writer",
+    "required": [
+        "writer_territory"
+    ],
+    "properties": {
+        "writer_territory": {
+            "type": "array",
+            "items": [
                 {
-                  "type": "string"
-                },
-                {
-                  "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "writer_territory": {
+                            "type": "array",
+                            "description": "Set Record Type = SWT (writer Territory of Control) or OWT (other writer collection).  See Record Prefix in Properties of Components.",
+                            "items": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "string"
+                                }
+                            ]
+                        },
+                        "sequence_number": {
+                            "type": "integer",
+                            "description": "A sequential number assigned to each territory following an SWR or OWR"
+                        },
+                        "ipnumber": {
+                            "type": "string",
+                            "description": "Submitter’s unique identifier for this Writer."
+                        },
+                        "pr_share": {
+                            "type": "integer",
+                            "description": "Defines the percentage of the total royalty distributed for performance of the work which will be collected by (paid to) the writer within the above Territory. Within an SWT record, can be a range from 0 to 100.00."
+                        },
+                        "mr_share": {
+                            "type": "integer",
+                            "description": "Defines the percentage of the total royalty distributed for sales of CDs, Cassette Tapes, etc. in which the work is included which will be collected by (paid to) the writer. Within an SWT record, can be a range from 0 to 100.00."
+                        },
+                        "sr_share": {
+                            "type": "integer",
+                            "description": "Defines the percentage of the total royalty distributed for Synchronization rights to the work which will be collected by (paid to) the writer. Within an SWT record, can be a range from 0 to 100.00."
+                        },
+                        "included": {
+                            "type": "boolean",
+                            "description": "This is a marker which shows whether the territory specified in this record is part of the territorial scope of the agreement or not. Possible entries are I (= territory included) and E (= territory excluded). These values reside in the Inclusion/Exclusion Indicator Table."
+                        },
+                        "territory": {
+                            "type": "string",
+                            "description": "A territory within which this writer has the right to collect payment for performance of this work represented by TIS-N codes. These values and reference reside in the Territory Code Table."
+                        },
+                        "pr_affiliation": {
+                            "type": "string",
+                            "description": "Number assigned to the Performing Rights Society with which the writer is affiliated in the territory described in this SWT/OWT. These values reside on the Transmitter Code Table."
+                        },
+                        "mr_affiliation": {
+                            "type": "string",
+                            "description": "Number assigned to the Mechanical Rights Society with which the writer is affiliated in the territory described in this SWT/OWT. These values reside on the Transmitter Code Table."
+                        },
+                        "sr_affiliation": {
+                            "type": "string",
+                            "description": "Number assigned to the Mechanical Rights Society with which the writer is affiliated in the territory described in this SWT/OWT. These values reside on the Transmitter Code Table."
+                        },
+                        "recipient": {
+                            "type": "string",
+                            "description": "The intended recipient of the SWT/OWT record.  These values reside in the Transmitter Code Table  (in the case of a Society this will be their CISAC Society Code). "
+                        }
+                    },
+                    "required": [
+                        "writer_territory",
+                        "sequence_number",
+                        "included",
+                        "territory",
+                        "recipient"
+                    ]
                 }
-              ]
-            },
-            "sequence_number": {
-              "type": "integer",
-              "description":"A sequential number assigned to each territory following an SWR or OWR"
-            },
-            "ipnumber": {
-              "type": "string",
-              "description":"Submitter’s unique identifier for this Writer."
-            },
-            "pr_share": {
-              "type": "integer",
-              "description":"Defines the percentage of the total royalty distributed for performance of the work which will be collected by (paid to) the writer within the above Territory. Within an SWT record, can be a range from 0 to 100.00."
-            },
-            "mr_share": {
-              "type": "integer",
-              "description":"Defines the percentage of the total royalty distributed for sales of CDs, Cassette Tapes, etc. in which the work is included which will be collected by (paid to) the writer. Within an SWT record, can be a range from 0 to 100.00."
-            },
-            "sr_share": {
-              "type": "integer",
-              "description":"Defines the percentage of the total royalty distributed for Synchronization rights to the work which will be collected by (paid to) the writer. Within an SWT record, can be a range from 0 to 100.00."
-            },
-            "included": {
-              "type": "boolean",
-              "description":"This is a marker which shows whether the territory specified in this record is part of the territorial scope of the agreement or not. Possible entries are I (= territory included) and E (= territory excluded). These values reside in the Inclusion/Exclusion Indicator Table."
-            },
-            "territory": {
-              "type": "string",
-              "description":"A territory within which this writer has the right to collect payment for performance of this work represented by TIS-N codes. These values and reference reside in the Territory Code Table."
-            },
-            "pr_affiliation": {
-              "type": "string",
-              "description":"Number assigned to the Performing Rights Society with which the writer is affiliated in the territory described in this SWT/OWT. These values reside on the Transmitter Code Table."
-            },
-            "mr_affiliation": {
-              "type": "string",
-              "description":"Number assigned to the Mechanical Rights Society with which the writer is affiliated in the territory described in this SWT/OWT. These values reside on the Transmitter Code Table."
-            },
-            "sr_affiliation": {
-              "type": "string",
-              "description":"Number assigned to the Mechanical Rights Society with which the writer is affiliated in the territory described in this SWT/OWT. These values reside on the Transmitter Code Table."
-            },
-            "recipient": {
-              "type": "string",
-              "description":"The intended recipient of the SWT/OWT record.  These values reside in the Transmitter Code Table  (in the case of a Society this will be their CISAC Society Code). "
-            }
-          },
-          "required": [
-            "witer_territory",
-            "sequence_number",
-            "included",
-            "territory",
-            "recipient"
-          ]
+            ]
         }
-      ]
     }
-  },
-  "required": [
-    "writer_territory"
-  ]
 }
