@@ -1,0 +1,34 @@
+
+    {
+        "$schema": "man.json",
+    "type": "object",
+    "required": [
+        "writer_ip_number",
+        "pr_manuscript_share",
+        "mr_manuscript_share",
+        "sr_manuscript_share"
+    ],
+    "writer_ip_number": {
+            "description": "(is structured under writer not needed?)The writer interested party number pointing back to the Interested Party Number of the SWR/OWR record in an explicit link.",
+            "maximum": "99999999999",
+            "type": "number"
+    },
+        "pr_manuscript_share": {
+            "description": "Defines the percentage of the work that the writer contributed to with regards to the performance rights. It can be a range from 0 to 100.00.",
+        "type": "number",
+            "maximum": "100",
+            "pattern": "[0-9]{1,3}\\.[0-9]{0,2}"
+    },
+        "mr_manuscript_share": {
+            "description": "Defines the percentage of the work that the writer contributed to with regards to the performance rights. It can be a range from 0 to 100.00.",
+        "type": "number",
+            "maximum": "100",
+            "pattern": "[0-9]{1,3}\\.[0-9]{0,2}"
+    },
+        "sr_manuscript_share": {
+            "description": "Defines the percentage of the work that the writer contributed to with regards to the synchronization rights. It can be a range from 0 to 100.00.",
+        "type": "number",
+            "maximum": "100",
+        "pattern": "[0-9]{1,3}\\.[0-9]{0,2}"
+    }
+    }

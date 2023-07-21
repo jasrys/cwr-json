@@ -1,0 +1,28 @@
+
+    {
+        "$schema": "npn.json",
+    "type": "object",
+    "required": [
+        "interested_party_number",
+    "publisher_name"],
+    "properties": {
+        "interested_party_number": {
+            "description": "(not needed if we structure this inside the publsher record) Submitter’s unique identifier for this publisher.",
+            "type": "number",
+            "maximum": "99999999999"
+        },
+        "publisher_name": {
+            "description": "The name of this publishing company in non-roman alphabet.",
+            "type": "string",
+            "maxLength": "480"
+        },
+        "language_code": {
+            "description": "The Language code of the name. Values and reference for this field reside in the Language Code Table.",
+            "$ref": "/schemas/language"
+        },
+        "script_code": {
+            "description": "The code representing the language script of this title. These values and reference reside in the Script Code Table.",
+            "$ref": "/schemas/script"
+        }
+    }
+}

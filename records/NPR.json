@@ -1,0 +1,59 @@
+
+    {
+        "$schema": "npr.json",
+    "type": "object",
+    "required": [
+    ],
+    "anyOf": [
+        {"required": ["performing_artist_name"]},
+        {"required": ["performance_language"]},
+        {
+            "required": [
+                "performance_dialect"
+            ]
+        }
+    ],
+    "properties": {
+        "performing_artist_name": {
+            "description": "Name of a person or full name of a group that has performed the work in public. Note that if the performer is known by a single name, it should be entered in this field.",
+            "maxLength": "160",
+            "type": "string",
+            "Required": "Conditional"
+        },
+        "performing_artist_first_name": {
+            "description": "First name of a person that has performed the work in public. .",
+            "type": "string",
+            "maxLength": "160"
+        },
+        "performing_artist_ipi_name_number": {
+            "description": "(not requires if structred under \"PER\") The IPI Name Number corresponding to this performing artist. Values reside in the IPI database.",
+            "type": "number",
+            "maximum": "99999999999"
+        },
+        "isni": {
+            "description": "(not needed if nested nder \"PER\") The ISNI assigned to the performing artist.",
+            "type": "string",
+            "maxLength": "16"
+        },
+        "performance_language": {
+            "description": "The language used in the performance. Values and reference for this field reside in the Language Code Table.",
+            "type": "String / International Standard",
+            "$ref": "/schemas/language",
+            "Required": "Conditional"
+        },
+        "performance_dialect": {
+            "description": "The dialect used in the performance – must be a valid code from ISO 639-2(T). These values and reference reside in the Dialect Code Table",
+            "type": "String / International Standard",
+            "$ref": "/schemas/script",
+            "Required": "Conditional"
+        },
+        "language_code": {
+            "description": "The Language code of the name. Values and reference for this field reside in the Language Code Table.",
+            "$ref": "/schemas/language"
+        },
+        "script_code": {
+            "description": "The code representing the language script of this Live Performing Artist. These values and reference reside in the Script Code Table.",
+            "$ref": "/schemas/script"
+        }
+    }
+}

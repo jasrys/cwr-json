@@ -1,0 +1,35 @@
+
+    {
+        "$schema": "now.json",
+    "type": "object",
+    "required": [
+        "writer_name"
+    ],
+    "properties": {
+        "writer_name": {
+            "description": "The last or single name of this writer.",
+            "type": "String",
+            "maxLength": "160",
+            "Required": "Mandatory"
+        },
+        "writer_first_name": {
+            "description": "The first name of this writer.",
+            "type": "String",
+            "maxLength": "160"
+        },
+        "writer_position": {
+            "description": "The position of the writer in the corresponding OWK record (ie. 1 or 2)",
+            "type": "Number",
+            "minimum": "1",
+            "maximum": "2"
+        },
+        "language_code": {
+            "description": "The Language code of the name. Values and reference for this field reside in the Language Code Table.",
+            "$ref": "/schemas/language"
+        },
+        "script_code": {
+            "description": "The code representing the language script of this writer name. These values and reference reside in the Script Code Table.",
+            "$ref": "/schemas/script"
+        }
+    }
+}

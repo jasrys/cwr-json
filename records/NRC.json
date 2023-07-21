@@ -1,0 +1,76 @@
+
+    {
+        "$schema": "nrc.json",
+    "type": "object",
+    "required": [
+    ],
+    "dependantRequired": {
+        "isrc": [
+            "isrc_validity"
+        ]
+    },
+    "properties": {
+        "Release_Date": {
+            "description": "Date the work was or will be released for public consumption. This date can be a past, present, or future date.",
+            "type": "string",
+            "format": "date"
+        },
+        "recording_duration": {
+            "description": "Duration of the recording of the work.",
+            "type": "String",
+            "format": "duration"
+        },
+        "isrc": {
+            "description": "International Standard Recording Code of the recording of the work on the release (according to ISO 3901).",
+            "type": "String / International Standard",
+            "pattern": ".{5}[0-9]{7}"
+        },
+        "recording_title": {
+            "description": "Title given to the version of the Sound Recording (for example: “remixed by”)",
+            "type": "String",
+            "maxLength": "60"
+        },
+        "version_title": {
+            "description": "Title given to the version of the Sound Recording (for example: “remixed by”)",
+            "type": "String",
+            "maxLength": "60"
+        },
+        "display_artist": {
+            "description": "Name of the artist of the Sound Recording",
+            "type": "String",
+            "maxLength": "60"
+        },
+        "display_artist_ipi_name_number": {
+            "description": "The IPI Name Number corresponding to this performing artist. Values reside in the IPI database.",
+            "type": "number",
+            "maximum": "99999999999"
+        },
+        "isni": {
+            "description": "Name of the organisation that produced the Sound Recording of the work ",
+            "type": "String / International Standard",
+            "maxLength": "16"
+        },
+        "record_label": {
+            "description": "Name of the organisation that produced the Sound Recording of the work ",
+            "type": "String",
+            "maxLength": "60"
+        },
+        "isrc_validity": {
+            "description": "If an ISRC is supplied, Indicates that the validity of the ISRC. These values can be found in the ISRC Validity Indicator Table.",
+            "type": "boolean"
+        },
+        "submitter_recording_identifier": {
+            "description": "The submitter’s unique identifier for this recording.",
+            "type": "String",
+            "maxLength": "14"
+        },
+        "language_code": {
+            "description": "The Language code of the title. Values and reference for this field reside in the Language Code Table.",
+            "$ref": "/schemas/language"
+        },
+        "script_code": {
+            "description": "The code representing the language script of this title. These values and reference reside in the Script Code Table.",
+            "$ref": "/schemas/script"
+        }
+    }
+}

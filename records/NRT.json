@@ -1,0 +1,35 @@
+
+    {
+        "$schema": "nrt.json",
+    "type": "object",
+    "required": [
+        "title",
+        "title_type"
+    ],
+    "properties": {
+        "title": {
+            "description": "The work title in non-Roman alphabet",
+            "type": "String",
+            "maxLength": "640"
+        },
+        "title_type": {
+            "description": "Indicates the type of title presented on this record (original, alternative etc.). These values reside in the Title Type Table.",
+            "Publisher_Name": {
+                "description": "The name of this publishing company in non-roman alphabet.",
+                "Size": "480",
+                "type": "String",
+                "Required": "Mandatory"
+            },
+            "type": "String / Lookup",
+            "maxLength": "2"
+        },
+        "language_code": {
+            "description": "The Language code of the title. Values and reference for this field reside in the Language Code Table.",
+            "$ref": "/schemas/language"
+        },
+        "script_code": {
+            "description": "The code representing the language script of this title. These values and reference reside in the Script Code Table.",
+            "$ref": "/schemas/script"
+        }
+    }
+}

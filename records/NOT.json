@@ -1,0 +1,23 @@
+
+    {
+        "$schema": "not.json",
+    "type": "object",
+    "required": [
+        "title"
+    ],
+    "properties": {
+        "title": {
+            "description": "The title in non-Roman alphabet.",
+            "type": "string",
+            "maxLength": "640"
+        },
+        "language_code": {
+            "description": "The Language code of the title. Values and reference for this field reside in the Language Code Table.",
+            "$ref": "/schemas/language"
+        },
+        "script_code": {
+            "description": "The code representing the language script of this title. These values and reference reside in the Script Code Table.",
+            "$ref": "/schemas/script"
+        }
+    }
+}
