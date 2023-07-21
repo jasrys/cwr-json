@@ -1,0 +1,41 @@
+{
+    "$id": "ARI.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "ARI",
+    "type": "object",
+    "description": "Comments",
+    "required": [
+        "society_number",
+        "right_type"
+    ],
+    "properties": {
+        "society_number": {
+            "type": "string",
+            "description": "Number assigned to the Society to which the Note is addressed. These values reside Society Code Table. If the note is addressed to all societies that use the ARI record, use “000”.",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "society_work_id": {
+            "type": "string",
+            "description": "The Society work # that relates to this registration. It may have been found on an unidentified list, or a website etc.",
+            "maxLength": 14
+        },
+        "right_type": {
+            "type": "string",
+            "description": "Indicates that this information relates to performing rights, mechanical rights, sync. rights or all rights (ALL)",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "subject_code": {
+            "type": "string",
+            "description": "Subject of the ARI",
+            "minLength": 2,
+            "maxLength": 2
+        },
+        "note": {
+            "type": "string",
+            "description": "Free text field pertaining to the type of right and subject specified above.",
+            "maxLength": 160
+        }
+    }
+}
