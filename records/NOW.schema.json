@@ -1,26 +1,28 @@
 {
-    "$schema": "now.json",
+    "$id": "NOW.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "NOW",
     "type": "object",
+    "description": "The non-Roman alphabet name of writers listed in the OWK record.",
     "required": [
         "writer_name"
     ],
     "properties": {
         "writer_name": {
             "description": "The last or single name of this writer.",
-            "type": "String",
-            "maxLength": "160",
-            "Required": "Mandatory"
+            "type": "string",
+            "maxLength": 160
         },
         "writer_first_name": {
             "description": "The first name of this writer.",
-            "type": "String",
-            "maxLength": "160"
+            "type": "string",
+            "maxLength": 160
         },
         "writer_position": {
             "description": "The position of the writer in the corresponding OWK record (ie. 1 or 2)",
-            "type": "Number",
-            "minimum": "1",
-            "maximum": "2"
+            "type": "number",
+            "minimum": 1,
+            "maximum": 2
         },
         "language_code": {
             "description": "The Language code of the name. Values and reference for this field reside in the Language Code Table.",
