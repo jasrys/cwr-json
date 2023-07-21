@@ -1,6 +1,12 @@
 {
-    "$schema": "writers_publisher",
+    "$id": "PWR.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "PWR",
     "type": "object",
+    "description": "For each writer, lists the original publishers representing this writer.",
+    "required": [
+        "writers_publisher"
+    ],
     "properties": {
         "writers_publisher": {
             "type": "array",
@@ -56,8 +62,5 @@
                 }
             ]
         }
-    },
-    "required": [
-        "writers_publisher"
-    ]
+    }
 }
