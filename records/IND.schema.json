@@ -15,7 +15,7 @@
         },
         "number_of_players": {
             "description": "Indicates the number of players for the above instrument",
-            "type": "Number",
+            "type": "number",
             "maximum": 999
         }
     }
