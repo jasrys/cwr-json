@@ -4,6 +4,11 @@
     "title": "ALT",
     "type": "object",
     "description": "The alternative title or AKA of a work",
+    "required": [
+        "alternative_title",
+        "title_type",
+        "language_code"
+    ],
     "properties": {
         "alternative_title": {
             "description": "The alternative title or AKA of a work",
@@ -22,10 +27,5 @@
             "minLength": 2,
             "maxLength": 2
         }
-    },
-    "required": [
-        "alternative_title",
-        "title_type",
-        "language_code"
-    ]
+    }
 }
