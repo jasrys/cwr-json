@@ -55,13 +55,12 @@
         "eidr": {
             "description": "Combined Root & check number",
             "type": "string",
-            "maxLength": "21",
-            "pattern": ""
+            "maxLength": 21
         },
         "version_name": {
             "description": "The title or description of the particular version to which the specific ISAN or EIDR relates.",
             "type": "string",
-            "maxLength": "40"
+            "maxLength": 40
         }
     }
 }
