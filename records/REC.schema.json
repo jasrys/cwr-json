@@ -18,7 +18,8 @@
         },
         "recording_duration": {
             "description": "Duration of the recording of the work.",
-            "type": "string"
+            "type": "string",
+            "format": "duration"
         },
         "isrc": {
             "description": "International Standard Recording Code of the recording of the work on the release (according to ISO 3901).",
@@ -57,7 +58,8 @@
         },
         "isrc_validity": {
             "description": "If an ISRC is supplied, Indicates that the validity of the ISRC. These values can be found in the ISRC Validity Indicator Table.",
-            "type": "boolean"
+            "type": "string",
+            "maxLength": 1
         },
         "submitter_recording_identifier": {
             "description": "The submitter’s unique identifier for this recording.",
