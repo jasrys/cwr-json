@@ -1,0 +1,147 @@
+{
+    "$id": "WRK.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "WRK",
+    "type": "object",
+    "description": "Submission of Work Details for Registration",
+    "required": [
+        "work_title",
+        "submitter_work_number",
+        "musical_work_distribution_category",
+        "recorded_indicator",
+        "version_type",
+        "publishers",
+        "writers"
+    ],
+    "properties": {
+        "work_title": {
+            "type": "string",
+            "description": "Primary title of the work.",
+            "maxLength": 60
+        },
+        "language_code": {
+            "type": "string",
+            "description": "The code representing the language of this title. Values and reference for this field reside in the Language Code Table.",
+            "minLength": 2,
+            "maxLength": 2
+        },
+        "submitter_work_number": {
+            "type": "string",
+            "description": "Number assigned to the work by the Submitter. This number must be unique for the publisher.",
+            "maxLength": 14
+        },
+        "iswc": {
+            "type": "string",
+            "description": "The International Standard Work Code assigned to this work.  ISO 15707:2001 Standard (not written but data form, ie. omitting dots and dashes, Tnnnnnnnnnn)",
+            "minLength": 11,
+            "maxLength": 11
+        },
+        "copyright_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Original copyright date of the work."
+        },
+        "copyright_number": {
+            "type": "string",
+            "description": "Original copyright number of the work as issued by the US Copyright office.",
+            "minLength": 12,
+            "maxLength": 12
+        },
+        "musical_work_distribution_category": {
+            "type": "string",
+            "description": "Describes the type of music as it applies to special distribution rules. Values for this field reside in the Musical Work Distribution Category Table.",
+        },
+        "duration": {
+            "type": "string",
+            "format": "duration",
+            "description": "Duration of the work in hours, minutes, and seconds. This field must be greater than zero if Musical Work Distribution Category is equal to SER. Note that some Recipients may also require duration for works where the Musical Work Distribution Category is equal to JAZ (e.g. BMI).",
+        },
+        "recorded_indicator": {
+            "type": "boolean",
+            "description": "Indicates whether or not the work has ever been recorded."
+        },
+        "text_music_relationship": {
+            "type": "string",
+            "description": "Indicates whether this work contains music, text, and/or both. Values reside in the Text Music Relationship Table.",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "composite_type": {
+            "type": "string",
+            "description": "If this is a composite work, this field will indicate the type of composite. Values reside in the Composite Type Table.",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "version_type": {
+            "type": "string",
+            "description": "Indicates relationships between this work and other works. Note that this field is used to indicate whether or not this work is an arrangement. Values reside in the Version Type Table.",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "excerpt_type": {
+            "type": "string",
+            "description": "If this is an excerpt, this field will indicate the type of excerpt. Values reside in the Excerpt Type Table.",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "music_arrangement": {
+            "type": "string",
+            "description": "If Version Type is equal to “MOD”, this field indicates the type of music arrangement. Values reside in the Music Arrangement Table.",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "lyric_adaptation": {
+            "type": "string",
+            "description": "If Version Type is equal to “MOD”, this field indicates the type of lyric adaptation. Values reside in the Lyric Adaptation Table.",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "grand_rights_indicator": {
+            "type": "boolean",
+            "description": "Indicates whether this work is originally intended for performance on stage. Note that this field is mandatory for registrations with the UK societies."
+        },
+        "composite_component_count": {
+            "type": "integer",
+            "description": "If Composite Type is entered, this field represents the number of components contained in this composite. Note that this is required for composite works where ASCAP is represented on the work."
+        },
+        "printed_publication_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Indicates the date that the printed, new edition published by the Submitter appeared. This information is especially relevant for the notification of sub-published works by GEMA-sub-publishers."
+        },
+        "exceptional_clause": {
+            "type": "boolean",
+            "description": "Indicates whether or not this work is subject to an exceptional clause. Values reside in the Exceptional Clause Table.",
+        },
+        "opus_number": {
+            "type": "string",
+            "description": "Indicates the number assigned to this work, usually by the composer. Part numbers are to be added with an # e.g. 28#3 (meaning Opus 28 part 3).",
+            "maxLength": 25
+        },
+        "catalogue_number": {
+            "type": "string",
+            "description": "The work catalogue number. The abbreviated name of the catalogue is to be added (like BWV, KV), without dots. Part numbers are to be added with an # e.g. KV 297#1 (meaning Köchel Verzeichnis Nr.297 part 1).",
+            "maxLength": 25
+        },
+        "priority_flag": {
+            "type": "boolean",
+            "description": "Indicates that this work should be processed faster because it is on the charts, is by a well-known composer, etc."
+        },
+        "publishers": {
+            "type": "array",
+            "description": "Publisher information for this work.",
+            "items": {
+                "$ref": "PUB.schema.json"
+            },
+            "minItems": 1
+        },
+        "writers": {
+            "type": "array",
+            "description": "Writer information for this work.",
+            "items": {
+                "$ref": "WRI.schema.json"
+            },
+            "minItems": 1
+        }
+    }
+}
