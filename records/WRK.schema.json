@@ -34,7 +34,8 @@
             "type": "string",
             "description": "The International Standard Work Code assigned to this work.  ISO 15707:2001 Standard (not written but data form, ie. omitting dots and dashes, Tnnnnnnnnnn)",
             "minLength": 11,
-            "maxLength": 11
+            "maxLength": 11,
+            "regex": "T[0-9]{10}"
         },
         "copyright_date": {
             "type": "string",
