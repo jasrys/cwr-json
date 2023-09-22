@@ -17,7 +17,7 @@
         },
         "recording_duration": {
             "description": "Duration of the recording of the work.",
-            "type": "string"
+            "type": "duration"
         },
         "isrc": {
             "description": "International Standard Recording Code of the recording of the work on the release (according to ISO 3901).",
