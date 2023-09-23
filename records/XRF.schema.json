@@ -1,0 +1,38 @@
+{
+    "$id": "XRF.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "XRF",
+    "type": "object",
+    "description": "Submission of Work Details for RegistratThis Record contains identifiers issued by any organisation including but not limited to the intended recipient of the file (though the principle work identifier should still be provided in WRK, ACK and other headers).ion",
+    "required": [
+        "organisation_code",
+        "identifier",
+        "identifier_type",
+        "identifier_validity"
+    ],
+    "properties": {
+        "organization_code": {
+            "type": "string",
+            "description": "Number assigned to the Organisation (e.g. Society, publisher, DSP etc...) which generated the Work Code. These values reside in the Transmitter Code Table, or can be “ISW” for ISWC or “ISR” for ISRC. Note: Do not use “000”or “099”.",
+            "minLength": 3,
+            "maxLength": 3
+        },
+        "identifier": {
+            "type": "string",
+            "description": "An identifier that relates to this work Transaction which was issued by the Organisation identified in Organisation Code.",
+            "maxLength": 14
+        },
+        "identifier_type": {
+            "type": "string",
+            "description": "The type of identifier. These values reside in the Identifier Type Table.",
+            "minLength": 1,
+            "maxLength": 1
+        },
+        "identifier_validity": {
+            "type": "string",
+            "description": "Indicates whether the Identifier is valid or not. These values reside in the Identifier Validity Table.",
+            "minLength": 1,
+            "maxLength": 1
+        }
+    }
+}
