@@ -158,6 +158,14 @@
                 "$ref": "PER.schema.json"
             },
             "minItems": 1
+        },
+        "recordings": {
+            "type": "array",
+            "description": "Recordings of this work",
+            "items": {
+                "$ref": "REC.schema.json"
+            },
+            "minItems": 1
         }
     }
 }
