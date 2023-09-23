@@ -30,7 +30,7 @@
         },
         "language": {
             "type": "string",
-            "description": "The language used in the performance. Values and reference for this field reside in the Language Code Table.",
+            "description": "The language used in the performance. Values and reference for this field reside in the Language Code Table."
         },
         "dialect": {
             "type": "string",
