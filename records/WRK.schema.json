@@ -190,6 +190,14 @@
                 "$ref": "XRF.schema.json"
             },
             "minItems": 1
+        },
+        "audio_visual_productions": {
+            "type": "array",
+            "description": "Audio-visual production into which the submitted work has been licensed over and above any AV production described in the ORN record",
+            "items": {
+                "$ref": "FTV.schema.json"
+            },
+            "minItems": 1
         }
     }
 }
