@@ -150,6 +150,14 @@
             "items": {
                 "$ref": "ALT.schema.json"
             }
+        },
+        "live_performing_artists": {
+            "type": "array",
+            "description": "Persons or groups performing this work in public.",
+            "items": {
+                "$ref": "PER.schema.json"
+            },
+            "minItems": 1
         }
     }
 }
