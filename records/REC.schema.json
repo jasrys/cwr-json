@@ -12,56 +12,56 @@
     },
     "properties": {
         "release_date": {
-            "description": "Date the work was or will be released for public consumption. This date can be a past, present, or future date.",
             "type": "string",
+            "description": "Date the work was or will be released for public consumption. This date can be a past, present, or future date.",
             "format": "date"
         },
         "recording_duration": {
-            "description": "Duration of the recording of the work.",
-            "type": "string"
+            "type": "string",
+            "description": "Duration of the recording of the work."
         },
         "isrc": {
-            "description": "International Standard Recording Code of the recording of the work on the release (according to ISO 3901).",
             "type": "string",
+            "description": "International Standard Recording Code of the recording of the work on the release (according to ISO 3901).",
             "pattern": ".{5}[0-9]{7}"
         },
         "recording_title": {
-            "description": "Title of the Sound Recording",
             "type": "string",
+            "description": "Title of the Sound Recording",
             "maxLength": 60
         },
         "version_title": {
-            "description": "Title given to the version of the Sound Recording (for example: “remixed by”)",
             "type": "string",
+            "description": "Title given to the version of the Sound Recording (for example: “remixed by”)",
             "maxLength": 60
         },
         "display_artist": {
-            "description": "Name of the artist of the Sound Recording",
             "type": "string",
+            "description": "Name of the artist of the Sound Recording",
             "maxLength": 60
         },
         "display_artist_ipi_name_number": {
+            "type": "integer",
             "description": "The IPI Name Number corresponding to this performing artist. Values reside in the IPI database.",
-            "type": "number",
             "maximum": 99999999999
         },
         "isni": {
-            "description": "The ISNI assigned to the performing artist.",
             "type": "string",
+            "description": "The ISNI assigned to the performing artist.",
             "maxLength": 16
         },
         "record_label": {
-            "description": "Name of the organisation that produced the Sound Recording of the work ",
             "type": "string",
+            "description": "Name of the organisation that produced the Sound Recording of the work ",
             "maxLength": 60
         },
         "isrc_validity": {
+            "type": "boolean",
             "description": "If an ISRC is supplied, Indicates that the validity of the ISRC. These values can be found in the ISRC Validity Indicator Table.",
-            "type": "boolean"
         },
         "submitter_recording_identifier": {
-            "description": "The submitter’s unique identifier for this recording.",
             "type": "string",
+            "description": "The submitter’s unique identifier for this recording.",
             "maxLength": 14
         }
     }
