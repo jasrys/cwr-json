@@ -63,6 +63,11 @@
                 "$ref": "TER.schema.json"
             },
             "minItems": 1
+        },
+        "administrator": {
+            "type":"object",
+            "description": "The administartor or sub-publisher for this publisher",
+            "$ref": "PUB.schema.json"
         }
     }
 }
