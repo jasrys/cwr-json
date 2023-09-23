@@ -182,6 +182,14 @@
                 "$ref": "ARI.schema.json"
             },
             "minItems": 1
+        },
+        "work_identifiers": {
+            "type": "array",
+            "description": "Work identifiers for this work issued by any organisation",
+            "items": {
+                "$ref": "XRF.schema.json"
+            },
+            "minItems": 1
         }
     }
 }
