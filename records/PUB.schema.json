@@ -7,7 +7,9 @@
     "required": [
         "controlled",
         "publisher_sequence_number",
-        "unknown_indicator"
+        "unknown_indicator",
+        "territories"
+
     ],
     "properties": {
         "controlled": {
@@ -53,6 +55,14 @@
             "description": "Indicates that rights flow through SESAC/BMI/ASCAP/AMRA in the US",
             "minLength": 1,
             "maxLength": 1
+        },
+        "territories": {
+            "type": "array",
+            "description": "A list of territories related to this publisher",
+            "items": {
+                "$ref": "TER.schema.json"
+            },
+            "minItems": 1
         }
     }
 }
