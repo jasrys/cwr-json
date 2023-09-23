@@ -55,6 +55,19 @@
             "description": "A list of territories related to this publisher",
             "items": {
                 "$ref": "TER.schema.json"
+            },
+            "minItems": 1
+        },
+        "manuscript_share": {
+            "type": "object",
+            "description": "The Writer Manuscript Share record represents the proportion of a work written by a writer, as agreed between the writers who contributed to the work.",
+            "$ref": "MAN.schema.json"
+        },
+        "publishers_for_writer": {
+            "type": "array",
+            "description": "The PWR record is used to indicate the publisher that represents this writer",
+            "items": {
+                "$ref": "PWR.schema.json"
             }
         }
     }
