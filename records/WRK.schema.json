@@ -166,6 +166,14 @@
                 "$ref": "REC.schema.json"
             },
             "minItems": 1
+        },
+        "instrumentation_summaries": {
+            "type": "array",
+            "description": "Information on standard and non-standard instrumentation for serious works",
+            "items": {
+                "$ref": "INS.schema.json"
+            },
+            "minItems": 1
         }
     }
 }
