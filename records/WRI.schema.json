@@ -62,13 +62,6 @@
         "usa_society": {
             "type": "string",
             "description": "Indicates that rights flow through SESAC/BMI/ASCAP/AMRA in the US. These values reside in the USA License Indicator Table.",
-            "enum": [
-                "ASCAP",
-                "BMI",
-                "SESAC",
-                "AMRA",
-                "GMR"
-            ]
         }
     }
 }
