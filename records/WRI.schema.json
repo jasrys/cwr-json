@@ -47,11 +47,11 @@
             "type": "integer",
             "description": "The IPI base number assigned to this writer. These values reside in the IPI database."
         },
-        "reversionary": {
+        "reversionary_indicator": {
             "type": "string",
             "description": "Indicates writer involved in the claim.  Note that this flag only applies to societies that recognize reversionary rights (for example, SOCAN)."
         },
-        "first_rec_refusal": {
+        "first_recording_refusal_indicator": {
             "type": "boolean",
             "description": "Indicates whether the submitter has refused to give authority for the first recording. Note that this field is mandatory for registrations with the UK societies."
         },
