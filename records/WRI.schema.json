@@ -49,6 +49,13 @@
         "usa_society": {
             "type": "string",
             "description": "Indicates that rights flow through SESAC/BMI/ASCAP/AMRA in the US. These values reside in the USA License Indicator Table.",
+        },
+        "territories": {
+            "type": "array",
+            "description": "A list of territories related to this publisher",
+            "items": {
+                "$ref": "TER.schema.json"
+            }
         }
     }
 }
