@@ -167,11 +167,11 @@
             },
             "minItems": 1
         },
-        "instrumentation_summaries": {
+        "instrumentation_details": {
             "type": "array",
-            "description": "Information on standard and non-standard instrumentation for serious works",
+            "description": "Information on standard instruments or voices for serious works",
             "items": {
-                "$ref": "INS.schema.json"
+                "$ref": "IND.schema.json"
             },
             "minItems": 1
         }
