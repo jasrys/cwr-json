@@ -29,12 +29,12 @@
             "maxLength": 16
         },
         "language": {
+            "type": "string",
             "description": "The language used in the performance. Values and reference for this field reside in the Language Code Table.",
-            "$ref": "/schemas/language"
         },
         "dialect": {
+            "type": "string",
             "description": "The dialect used in the performance – must be a valid code from ISO 639-2(T). These values and reference reside in the Dialect Code Table e.g. if the performance is in Mandarin, YUE Cantonese, MIN NAN or HAKKA, then use: CHN, YUH, CFR or HAK",
-            "$ref": "/schemas/dialect"
         }
     }
 }
