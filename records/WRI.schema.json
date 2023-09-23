@@ -25,19 +25,6 @@
         "role": {
             "type": "string",
             "description": "Code defining the role the writer played in the composition of the work. These values reside in the Writer Role Table.",
-            "enum": [
-                "Adaptor",
-                "Arranger",
-                "Author, Writer",
-                "Author of Lyrics",
-                "Composer",
-                "Writer",
-                "Composer/Author",
-                "Sub Arranger",
-                "Sub Author",
-                "Translator",
-                "Income Participant"
-            ]
         },
         "ipi_name_number": {
             "type": "integer",
