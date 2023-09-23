@@ -3,7 +3,7 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "title": "REC",
     "type": "object",
-    "description": "Details of audio recordings of the work.",
+    "description": "Details of an audio recording of the work.",
     "required": [],
     "dependantRequired": {
         "isrc": [
