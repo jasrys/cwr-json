@@ -3,7 +3,7 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "title": "XRF",
     "type": "object",
-    "description": "Submission of Work Details for RegistratThis Record contains identifiers issued by any organisation including but not limited to the intended recipient of the file (though the principle work identifier should still be provided in WRK, ACK and other headers).ion",
+    "description": "This Record contains identifiers issued by any organisation including but not limited to the intended recipient of the file (though the principle work identifier should still be provided in WRK, ACK and other headers).ion",
     "required": [
         "organisation_code",
         "identifier",
