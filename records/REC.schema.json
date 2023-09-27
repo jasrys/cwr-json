@@ -17,8 +17,9 @@
             "format": "date"
         },
         "recording_duration": {
+            "description": "Duration of the recording of the work.",
             "type": "string",
-            "description": "Duration of the recording of the work."
+            "format": "duration"
         },
         "isrc": {
             "type": "string",
